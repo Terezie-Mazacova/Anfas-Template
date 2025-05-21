@@ -1,0 +1,247 @@
+/*
+  reset
+*/
+
+* {
+  box-sizing: border-box;
+}
+ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+td, tr, table, tbody {
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+ul {
+  list-style: none
+}
+/*
+  reset :: END
+*/
+
+html, body {
+  height: 100%;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: white;
+  color: #333;
+  font-family: $font-p;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  text-align: left;
+
+  @include breakpoint ('large') {
+     font-size: 1.8rem;
+  }
+}
+
+main {
+  //overflow: hidden;
+}
+
+b, strong {
+  font-weight: 700;
+}
+
+
+a, .link {
+  color: inherit;
+  background: none;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+// tables
+table {
+  width: 100%;
+  border: 0;
+}
+
+tr {
+  margin: $v-s-1 0;
+}
+td + td {
+  padding-left: $v-s-2;
+}
+.foundation-mq {
+  font-family: "small=0em&medium=40em&large=64em&xlarge=75em&xxlarge=90em"
+}
+
+::selection { background: $primary; background: rgba($color: $primary, $alpha: .3) }
+
+.svg-img {
+  fill: currentColor;
+  width: 100%;
+  height: 100%;
+}
+
+// text alignments
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+
+.no-space {
+  margin: 0;
+  padding: 0;
+}
+
+// canvas represents full-width area
+.canvas {
+  position: relative;
+  padding: $v-s-5 2rem; // basic sides padding (usefull on small screen)
+  z-index: 0;
+
+  &--white {
+    background-color: white;
+  }
+
+  &--black {
+    background: black;
+    color: white;
+  }
+
+  &--gray {
+    background: #F2F2F2;
+  }
+
+  &--footer {
+    background: $primary;
+    color: white;
+  }
+
+  @include breakpoint ('medium') {
+    padding: $v-s-6 0;
+  }
+
+  @include breakpoint ('xlarge') {
+    padding: $v-s-7 0;
+  }
+
+  @include breakpoint ('xxlarge') {
+    padding: $v-s-8 0;
+  }
+
+  &--first {
+    margin-top: 8rem;
+  }
+}
+
+.canvas--white + .canvas--white {
+  padding-top: 0;
+}
+.canvas--gray + .canvas--gray {
+  padding-top: 0;
+}
+.canvas--black + .canvas--black {
+  padding-top: 0;
+}
+
+.canvas > .content:first-of-type {
+  margin-top: 0;
+}
+
+.close-button {
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: black;
+  border: none;
+  cursor: pointer;
+  transition: all ease .3s;
+  img {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  &:hover {
+    background: white;
+    transition: all ease .3s;
+  }
+}
+
+
+// Hambureger hexagon fix
+.hamburger {
+  padding: .2rem !important;
+}
+.hamburger-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: .5rem !important;
+}
+
+// Image
+.common-img {
+  height: auto;
+  max-width: 100%;
+}
+.full-width-img {
+  height: auto;
+  width: 100%;
+}
+.map-img {
+  max-width: 30rem;
+}
+
+#map {
+  width: 100%;
+  height: 40rem;
+}
+#status {
+  display: none;
+}
+
+.reveal {
+  padding: 8rem 2rem;
+  outline: none;
+  border: none;
+  width: 100rem;
+  max-width: 100%;
+  @include breakpoint ("medium") {
+    padding: 8rem;
+  }
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.display-none {
+  display: none !important;
+}
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.anchor {
+  position: absolute;
+  top: -8rem;
+  left: 0;
+  &--sm {
+    top: -6rem;
+  }
+}

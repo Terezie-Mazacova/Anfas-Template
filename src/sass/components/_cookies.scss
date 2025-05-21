@@ -1,0 +1,468 @@
+// Aktivní barva - primární barvy webu
+$orejime-color: $primary !default;
+
+// Pozadí bloku
+$orejime-theme-bg: white !default;
+
+// Barva textu
+$orejime-theme-color: black !default;
+
+
+$orejime-box-shadow: none !default;
+$orejime-border-radius: 4px !default;
+$orejime-theme-border: 1px solid #555 !default;
+$orejime-theme-color-light: #aaa !default;
+$orejime-breakpoint-notice: 990px !default;
+
+[class^="orejime-"] {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    vertical-align: baseline;
+    cursor: default;
+    float: none;
+    width: auto;
+    text-align: left;
+    font-weight: normal;
+}
+.orejime-Main,
+.orejime-Modal {
+    font-size: 1em;
+    line-height: 1.5;
+}
+.orejime-Button {
+    border: 0;
+    color: #fff;
+    border-radius: $orejime-border-radius;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    margin-right: 2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    @include breakpoint ("medium") {
+        margin-top: 0;
+        font-size: 1.4rem;
+        padding: 1.5rem 3rem;
+    }
+
+    &[disabled] {
+        //opacity: 0.75;
+        opacity: 1;
+    }
+}
+.orejime-Button--save,
+.orejime-Button--accept {
+    border: .1rem solid $orejime-color;
+    background: $orejime-color;
+    color: #fff;
+}
+.orejime-Button--decline {
+    background: transparent;
+    padding: 0;
+    color: $orejime-color;
+}
+.orejime-Button--info {
+    background: transparent;
+    border: .1rem solid $orejime-color;
+    color: $orejime-color;
+}
+.orejime-Notice {
+    background: $orejime-theme-bg;
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0px 0px 50px 10px rgba(0, 0, 0, 0.1);
+}
+.orejime-Notice--mandatory {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-width: none;
+}
+.orejime-Notice--hidden {
+    display: none !important;
+}
+.orejime-Notice-body {
+    padding: 2rem 2rem;
+    width: 100%;
+    max-width: 80rem;
+    margin: auto;
+    @include breakpoint ("medium") {
+        padding: 4rem 2rem;
+    }
+}
+.orejime-Notice-logo {
+    width: 20rem;
+    height: auto;
+    margin-bottom: 4rem;
+    max-height: 8rem;
+    object-fit: contain;
+    object-position: left center;
+}
+.orejime-Notice-title,
+.orejime-Notice-description {
+    color: $orejime-theme-color;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    @include breakpoint ("medium") {
+        font-size: 1.6rem;
+    }
+}
+.orejime-Notice-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    line-height: 1.3;
+}
+.orejime-Notice-purposes {
+    color: $orejime-theme-color;
+}
+.orejime-Notice-changes {
+    color: $orejime-theme-color;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+.orejime-Notice-privacyPolicyLink {
+    text-decoration: underline;
+    cursor: pointer;
+    &,
+    &:hover {
+        color: inherit;
+    }
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+.orejime-Notice-actions {
+    display: block;
+}
+.orejime-Notice-actionItem {
+    display: inline-block;
+}
+.orejime-Notice-learnMoreButton {
+    display: inline-block;
+}
+.orejimeHtml-WithModalOpen {
+    height: 100%;
+}
+.orejimeHtml-WithModalOpen body {
+    position: fixed;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+.orejime-ModalOverlay,
+.orejime-NoticeOverlay {
+    z-index: 9999;
+    background: rgba(0,0,0,0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.orejime-ModalWrapper {
+    z-index: 1001;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    width: 640px;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+}
+.orejime-Modal {
+    background: $orejime-theme-bg;
+    color: $orejime-theme-color;
+    border-radius: $orejime-border-radius;
+    box-shadow: $orejime-box-shadow;
+    max-height: 70rem;
+    overflow: auto;
+}
+.orejime-Modal-description {
+    font-size: 1.4rem;
+}
+.orejime-Modal-header {
+    padding: 3rem 3rem 0 3rem;
+}
+.orejime-Modal-title {
+    margin: 0;
+    font-size: 2rem;
+    display: block;
+    font-weight: bold;
+    padding-right: 20px;
+    margin-bottom: .5rem;
+    @include breakpoint ("medium") {
+        font-size: 2.8rem;
+    }
+}
+.orejime-Modal-closeButton {
+    border: none;
+    background: none;
+    color: inherit;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+}
+.orejime-CloseIcon {
+    stroke: currentColor;
+    width: 12px;
+    cursor: pointer;
+}
+.orejime-Modal-body {
+    padding: 3rem;
+    padding-bottom: 16rem;
+    @include breakpoint ("medium") {
+        padding-bottom: 12rem;
+    }
+}
+.orejime-Modal-footer {
+    padding: 2rem 3rem;
+    border-top: $orejime-theme-border;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+}
+.orejime-Modal-privacyPolicyLink,
+.orejime-Modal-poweredByLink {
+    cursor: pointer;
+    text-decoration: underline;
+    color: inherit;
+    &:hover,
+    &:focus,
+    &:active {
+        color: inherit;
+    }
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+.orejime-Modal-poweredByLink {
+    position: absolute;
+    right: 1em;
+    color: $orejime-theme-color-light;
+    font-size: 0.8em;
+    padding: 6px 0;
+    &:hover,
+    &:focus,
+    &:active {
+        color: $orejime-theme-color-light;
+    }
+}
+.orejime-AppList {
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+.orejime-AppList-item {
+    display: block;
+    position: relative;
+    line-height: 1.25;
+    vertical-align: middle;
+    padding-left: 8rem;
+    min-height: 40px;
+    margin-top: 2rem;
+    &:first-child {
+        margin-top: 0;
+    }
+}
+.orejime-CategorizedAppList {
+    list-style: none;
+}
+.orejime-CategorizedAppList-item {
+    margin-bottom: 4rem;
+}
+.orejime-CategorizedAppList-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    @include breakpoint ("medium") {
+        font-size: 1.8rem;
+    }
+}
+.orejime-CategorizedAppList-description {
+    font-size: 1.2rem;
+    @include breakpoint ("medium") {
+        font-size: 1.4rem;
+    }
+}
+.orejime-CategorizedAppList-apps {
+    margin-top: 1.5rem;
+    margin-left: 0;
+}
+.orejime-AppItem-title {
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1.4rem;
+    @include breakpoint ("medium") {
+        font-size: 1.6rem;
+    }
+}
+.orejime-AppItem-description {
+    font-size: 1.4rem;
+}
+.orejime-AppItem-purposes {
+    font-size: 1.2rem;
+    color: $orejime-theme-color-light;
+    @include breakpoint ("medium") {
+        font-size: 1.4rem;
+    }
+}
+.orejime-AppItem-optOut,
+.orejime-AppItem-required {
+    padding-left: 0.2em;
+    font-size: 0.8em;
+    color: $orejime-theme-color-light;
+}
+.orejime-AppItem-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 50px;
+    height: 30px;
+}
+.orejime-AppItem-switch {
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+}
+.orejime-AppItem-slider {
+    box-shadow: $orejime-box-shadow;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #aaa;
+    -webkit-transition: .4s;
+    transition: .4s;
+    width: 50px;
+    display: inline-block;
+    border-radius: 30px;
+    border: 2px solid transparent;
+    &:before {
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 20px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+        border-radius: 50%;
+        border: 1px solid #555;
+    }
+}
+.orejime-AppItem-switchLabel {
+    position: absolute;
+    width: 50px;
+    top: 34px;
+    overflow: ellipsis;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: .3rem;
+}
+.orejime-AppItem-switch--disabled .orejime-AppItem-slider {
+    cursor: default;
+    opacity: 0.5;
+}
+.orejime-AppItem-switch--disabled .orejime-AppItem-switchLabel {
+    color: #aaa;
+}
+.orejime-AppItem-input:focus + .orejime-AppItem-label .orejime-AppItem-slider {
+    border-color: #fff;
+    outline-offset: 2px;
+}
+.orejime-AppItem-input:checked + .orejime-AppItem-label .orejime-AppItem-slider {
+    background-color: $orejime-color;
+}
+.orejime-AppItem-input:checked + .orejime-AppItem-label .orejime-AppItem-slider:before {
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+}
+.orejime-AppToggles {
+    margin-bottom: 1em;
+    display: block;
+}
+.orejime-AppToggles-item {
+    display: inline;
+}
+.orejime-AppToggles-enableAll {
+    border: 0.1rem solid $orejime-color;
+    background: $orejime-color;
+    color: #fff;
+}
+.orejime-Notice-purposes {
+    text-transform: lowercase;
+}
+#orejime {
+    pointer-events: none;
+}
+.orejime-Notice-body, .orejime-ModalPortal{
+    pointer-events: all;
+}
+.cookies {
+    &--small {
+        .orejime-Notice-logoContainer {
+            display: none;
+        }
+    }
+    &--big {
+        .orejime-Main {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .orejime-Notice {
+            position: relative;
+            width: 80rem;
+            max-width: 95%;
+            margin: auto;
+            z-index: 2;
+            &::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, .6);
+                z-index: -1;
+            }
+        }
+        .orejime-Notice-body {
+            position: relative;
+            z-index: 9;
+            background: $orejime-theme-bg;
+            border-radius: .4rem;
+            padding: 2rem 4rem;
+            @include breakpoint ("medium") {
+                padding: 4rem 6rem;
+            }
+        }
+    }
+}

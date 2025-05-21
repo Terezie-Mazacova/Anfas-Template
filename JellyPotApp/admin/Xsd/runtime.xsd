@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<xs:schema id="JellyPotRuntimeConfig" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		xmlns="urn:Bet:ns:JellyPot:RuntimeConfig"
+    targetNamespace="urn:Bet:ns:JellyPot:RuntimeConfig" 
+    elementFormDefault="qualified"
+>
+
+	<!-- ============================================================== -->
+	<!-- Main definition -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:element name="JellyPotDef">
+		<xs:complexType>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="Domains" type="typeDomains" />
+        <xs:element name="Settings" minOccurs="1" maxOccurs="1">
+          <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="RunMode" type="typeRunMode" minOccurs="1" maxOccurs="1" />
+              <xs:element name="Paths" type="typePathsElement" minOccurs="0" maxOccurs="1" />
+              <xs:element name="Admin" type="typeAdminElement" minOccurs="0" maxOccurs="1" />
+							<xs:element name="Authentication" type="typeAuthenticationElement" minOccurs="0" maxOccurs="1" />
+							<xs:element name="Uploads" type="typeUploadsElement" minOccurs="0" maxOccurs="1" />
+              <xs:element name="Users" type="typeUsers" minOccurs="0" maxOccurs="1" />
+              <xs:element name="OutputCache" type="typeOutputCache" minOccurs="0" maxOccurs="1" />
+              <xs:element name="Database" type="typeDatabase" minOccurs="0" maxOccurs="1" />
+              <xs:element name="Exceptions" type="typeExceptions" minOccurs="0" maxOccurs="1" />
+              <xs:element name="Pages" type="typePagesElement" minOccurs="0" maxOccurs="1" />
+              <xs:element name="Misc" type="typeMiscElement" minOccurs="0" maxOccurs="1" />
+            </xs:choice>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Diagnostics" type="typeDiagnostics" minOccurs="0" maxOccurs="1" />
+				<xs:element name="SecurePaths" type="typeSecurePaths" minOccurs="0" maxOccurs="1" />
+				<xs:element name="EmailForms" type="typeEmailForms" minOccurs="0" maxOccurs="1" />
+				<xs:element name="NonFormal" type="typeNonFormal" minOccurs="0" maxOccurs="1" />
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- ============================================================== -->
+	<!-- Domains -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:complexType name="typeDomains">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Domain">
+        <xs:complexType>
+          <xs:attribute name="host" type="xs:string" use="required" />
+          <xs:attribute name="registrationKey" type="xs:string" use="optional" />
+          <xs:attribute name="registrationKeyPath" type="xs:string" use="optional" />
+          <xs:attribute name="redirectTo" type="xs:string" use="optional" />
+          <xs:attribute name="defaultPath" type="xs:string" use="optional" />
+          <xs:attribute name="varyByLanguage" type="typeBool" use="optional" />
+          <xs:attribute name="useSsl" type="typeBool" use="optional" />
+        </xs:complexType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+
+	<!-- ============================================================== -->
+	<!-- database -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:complexType name="typeDatabase">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="LogFile" type="typeLogFile" minOccurs="0" maxOccurs="1" />
+		</xs:choice>
+		<xs:attribute name="connString" type="xs:string" use="required" />
+		<xs:attribute name="projectID" type="xs:int" use="optional" />
+	</xs:complexType>
+		
+	<!-- ============================================================== -->
+	<!-- Exceptions -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:complexType name="typeExceptions">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="ErrorPage" type="typeErrorPage" minOccurs="0" maxOccurs="1" />
+      <xs:element name="LogFile" type="typeLogFile" minOccurs="0" maxOccurs="1" />
+			<xs:element name="LogMail" type="typeLogMail" minOccurs="0" maxOccurs="1" />
+		</xs:choice>
+		<xs:attribute name="catch" type="typeBool" use="optional" />
+	</xs:complexType>
+
+  <xs:complexType name="typeErrorPage">
+    <xs:attribute name="href" type="xs:string" use="required" />
+    <xs:attribute name="status" type="xs:int" use="optional" />
+    <xs:attribute name="type" type="typeErrorPageType" use="required" />
+  </xs:complexType>
+  <xs:simpleType name="typeErrorPageType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="404" />
+			<xs:enumeration value="500" />
+    </xs:restriction>
+  </xs:simpleType>
+
+	<!-- ============================================================== -->
+	<!-- Diagnostics -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:complexType name="typeDiagnostics">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="GoogleAnalytics" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:attribute name="account" type="xs:string" use="optional" />
+					<xs:attribute name="skip" type="typeBool" use="optional" />
+          <xs:attribute name="reason" type="xs:string" use="optional" />
+        </xs:complexType>
+			</xs:element>
+      <xs:element name="ErrorTesting" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:attribute name="skip" type="typeBool" use="optional" />
+          <xs:attribute name="reason" type="xs:string" use="optional" />
+        </xs:complexType>
+      </xs:element>
+    </xs:choice>
+		<xs:attribute name="key" type="xs:string" use="optional" />
+    <xs:attribute name="siteID" type="xs:int" use="optional" />
+  </xs:complexType>
+
+	<!-- ============================================================== -->
+	<!-- Elemens in Settings -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:complexType name="typeRunMode">
+		<xs:attribute name="mode" type="typeRunModeValue" use="required" />
+    <xs:attribute name="jsLibVersion" type="typeRunModeJsLibVersion" use="optional" />
+	</xs:complexType>
+
+  <xs:complexType name="typePathsElement">
+    <xs:choice minOccurs="0" maxOccurs="6">
+      <xs:element name="UpItems" type="typeMapingPath" />
+      <xs:element name="Files" type="typeMapingPath" />
+      <xs:element name="Imgs" type="typeMapingPath" />
+      <xs:element name="Data" type="typePath" />
+      <xs:element name="Trash" type="typePath" />
+      <xs:element name="Temp" type="typePath" />
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="typeMapingPath">
+    <xs:attribute name="path" type="xs:anyURI" use="optional" />
+    <xs:attribute name="mapTo" type="xs:anyURI" use="optional" />
+  </xs:complexType>
+  
+  <xs:complexType name="typePath">
+      <xs:attribute name="path" type="xs:anyURI" use="optional" />
+  </xs:complexType>
+  
+  <xs:complexType name="typeAdminElement">
+    <xs:attribute name="language" type="typeAdminLanguage" use="optional" />
+    <xs:attribute name="deny" type="typeBool" use="optional" />
+    <xs:attribute name="denyText" type="xs:string" use="optional" />
+    <xs:attribute name="denyTextNode" type="xs:string" use="optional" />
+    <xs:attribute name="adminPath" type="xs:string" use="optional" />
+    <xs:attribute name="adminUiPath" type="xs:string" use="optional" />
+    <xs:attribute name="loginDuration" type="xs:int" />
+    <xs:attribute name="loginRefreshInterval" type="xs:int" />
+    <xs:attribute name="loginTimeout" type="xs:int" />
+    <xs:attribute name="loginAcceptPermanent" type="typeBool" />
+  </xs:complexType>
+  <xs:simpleType name="typeAdminLanguage">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="cs" />
+      <xs:enumeration value="en" />
+    </xs:restriction>
+  </xs:simpleType>
+
+	<xs:complexType name="typeAuthenticationElement">
+		<xs:attribute name="omitClientIP" type="typeBool" use="optional" />
+	</xs:complexType>
+
+	<xs:complexType name="typeUploadsElement">
+    <xs:attribute name="sizeLimit" type="xs:int" use="optional" />
+    <xs:attribute name="sanitizeNames" type="typeBool" use="optional" />
+    <xs:attribute name="trashMethod" type="typeTrashMethod" use="optional" />
+  </xs:complexType>
+  <xs:simpleType name="typeTrashMethod">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="move" />
+      <xs:enumeration value="delete" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="typePagesElement">
+    <xs:choice>
+      <xs:element name="Page" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="type" type="typePageType" use="required" />
+          <xs:attribute name="href" type="xs:string" use="required" />
+          <xs:attribute name="status" type="xs:int" use="optional" />
+        </xs:complexType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+	<xs:simpleType name="typePageType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="login" />
+			<xs:enumeration value="notRights" />
+			<!--<xs:enumeration value="error404" />
+			<xs:enumeration value="error500" />-->
+		</xs:restriction>
+	</xs:simpleType>
+
+  <xs:complexType name="typeUsers" >
+    <xs:attribute name="requireLoginAsEmail" type="xs:boolean" use="optional" />
+    <xs:attribute name="omitGuests" type="typeBool" use="optional" />
+    <xs:attribute name="defaultGroups" type="xs:string" use="optional" />
+  </xs:complexType>
+
+  <xs:complexType name="typeOutputCache" >
+    <xs:attribute name="enable" type="typeBool" use="optional" />
+    <xs:attribute name="duration" type="xs:int" use="optional" />
+    <xs:attribute name="ignoreNoCacheHeader" type="typeBool" use="optional" />
+    <xs:attribute name="mode" type="typeOutputCacheMode" use="optional" />
+  </xs:complexType>
+
+  <xs:simpleType name="typeOutputCacheMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="forAnonymousOnly" />
+      <xs:enumeration value="forAll" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="typeMasterWI">
+    <xs:choice>
+      <xs:element name="LogFile" type="typeLogFile" minOccurs="0" maxOccurs="1" />
+    </xs:choice>
+    <xs:attribute name="url" type="xs:string" use="required" />
+  </xs:complexType>
+  
+  <xs:complexType name="typeMiscElement">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="FulltextSearch" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:attribute name="enable" type="typeBool" use="required" />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Search" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:attribute name="ignoreAccents" type="typeBool" use="optional" />
+        </xs:complexType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+	
+	<!-- ============================================================== -->
+	<!-- Named Paths -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:complexType name="typeSecurePaths">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="SecurePath">
+				<xs:complexType>
+					<xs:attribute name="name" type="typeName" use="required" />
+					<xs:attribute name="path" type="xs:string" use="required" />
+          <xs:attribute name="downloadPage" type="xs:string" use="optional" />
+          <xs:attribute name="mapTo" type="xs:string" use="optional" />
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+
+	<!-- ============================================================== -->
+	<!-- Email forms -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:complexType name="typeEmailForms">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="EmailServer" type="typeEmailServer" />
+			<xs:element name="EmailForm" type="typeEmailForm" />
+			<xs:element name="Spammer" type ="typeSpammer" />
+		</xs:choice>
+	</xs:complexType>
+
+  <!-- Typ emailove serveru -->
+  <xs:complexType name="typeEmailServer">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="LogFile" type="typeLogFileForEmailServer" minOccurs="0" maxOccurs="1" />
+    </xs:choice>
+    <xs:attribute name="name" type="typeName" use="optional" />
+    <xs:attribute name="smtp" type="xs:string" use="optional" />
+    <xs:attribute name="port" type="xs:int" use="optional" />
+    <xs:attribute name="useSsl" type="typeBool" use="optional" />
+    <xs:attribute name="from" type="xs:string" use="optional" />
+    <xs:attribute name="fromName" type="xs:string" use="optional" />
+    <xs:attribute name="userName" type="xs:string" use="optional" />
+    <xs:attribute name="pwd" type="xs:string" use="optional" />
+    <xs:attribute name="replyTo" type="xs:string" use="optional" />
+    <xs:attribute name="testOnly" type="typeBool" use="optional" />
+  </xs:complexType>
+
+  <xs:complexType name="typeEmailForm">
+    <xs:attribute name="name" type="typeName" use="required" />
+    <xs:attribute name="to" type="xs:string" use="optional" />
+    <xs:attribute name="toVar" type="xs:string" use="optional" />
+    <xs:attribute name="fromName" type="xs:string" use="optional" />
+    <xs:attribute name="fromNameVar" type="xs:string" use="optional" />
+    <xs:attribute name="replyTo" type="xs:string" use="optional" />
+    <xs:attribute name="replyToVar" type="xs:string" use="optional" />
+    <xs:attribute name="server" type="typeName" use="optional" />
+  </xs:complexType>
+
+  <xs:complexType name="typeSpammer">
+    <xs:attribute name="name" type="typeName" use="required" />
+    <xs:attribute name="fromName" type="xs:string" use="optional" />
+    <xs:attribute name="fromNameVar" type="xs:string" use="optional" />
+    <xs:attribute name="replyTo" type="xs:string" use="optional" />
+    <xs:attribute name="replyToVar" type="xs:string" use="optional" />
+    <xs:attribute name="server" type="typeName" use="optional" />
+    <xs:attribute name="defaultTime" type="xs:string" use="optional" />
+    <xs:attribute name="timeoutInMs" type="xs:int" use="optional" />
+  </xs:complexType>
+
+  <!-- oblast pro volne pole elementu -->
+	<xs:complexType name="typeNonFormal" mixed="true">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+     <xs:any 
+          minOccurs="1" maxOccurs="unbounded"
+          processContents="skip" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- ============================================================== -->
+	<!-- dilci datove typy -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+		<!-- log file -->
+	<xs:complexType name="typeLogFile">
+		<xs:attribute name="path" type="xs:string" use="required" />
+		<xs:attribute name="rotation" type="typeLogFileRotation" use="optional" />
+    <xs:attribute name="for" type="xs:string" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="typeLogFileForEmailServer">
+    <xs:attribute name="path" type="xs:string" use="required" />
+    <xs:attribute name="rotation" type="typeLogFileRotation" use="optional" />
+  </xs:complexType>
+	<!-- log file rotary -->
+	<xs:simpleType name="typeLogFileRotation">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="noRotation" />
+			<xs:enumeration value="yearly" />
+			<xs:enumeration value="monthly" />
+			<xs:enumeration value="weekly" />
+			<xs:enumeration value="daily" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- email -->
+	<xs:complexType name="typeLogMail">
+		<xs:attribute name="smtp" type="xs:string" use="required" />
+		<xs:attribute name="from" type="xs:string" use="required" />
+		<xs:attribute name="fromName" type="xs:string" use="optional" />
+		<xs:attribute name="to" type="xs:string" use="required" />
+		<xs:attribute name="userName" type="xs:string" use="optional" />
+		<xs:attribute name="pwd" type="xs:string" use="optional" />
+    <xs:attribute name="for" type="xs:string" use="optional" />
+  </xs:complexType>
+	<!-- email log pro containery -->
+	<xs:complexType name="typeLogMailC">
+	</xs:complexType>
+
+	<!-- run mode -->
+	<xs:simpleType name="typeRunModeValue">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="debug" />
+			<xs:enumeration value="release" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- run mode - jsLibValue-->
+	<xs:simpleType name="typeRunModeJsLibVersion">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]+|\*" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Name - bezpecne pojmenovani, napr. pro pathNames, formulare atp. -->
+	<!-- string bez diakritiky, bez merez, pouze z pismen a cislic -->
+	<xs:simpleType name="typeName">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Za-z][A-Za-z0-9_]*" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- typeBool -->
+	<xs:simpleType name="typeBool">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="false" />
+			<xs:enumeration value="true" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- typeTrue -->
+	<xs:simpleType name="typeTrue">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="true" />
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>

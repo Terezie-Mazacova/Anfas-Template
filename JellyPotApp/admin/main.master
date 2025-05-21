@@ -1,0 +1,38 @@
+<%@ Master %>
+<%@ Register TagPrefix="app" Namespace="Bet.AppBase.UI" Assembly="BetAppBaseUI" %>
+<%@ Register TagPrefix="cms" Namespace="Bet.JellyPot.UI" Assembly="JellyPot" %>
+<%@ Register TagPrefix="adm" Namespace="Bet.JellyPot.Admin" Assembly="JellyPot" %>
+<%@ Register TagPrefix="uc" TagName="Head" Src="Controls/Head.ascx" %>
+<%@ Register TagPrefix="uc" TagName="Vars" Src="Controls/Vars.ascx" %>
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<cms:region runat="server" id="title">
+			<title><adm:text runat="server" textNode="Main/Admin" /></title>
+		</cms:region>
+		<adm:adminStyleLink runat="server" href="/admin/assets/css/main.css" />
+		<adm:adminJsTag runat="server" />
+		<cms:region runat="server" id="htmlHeader" />
+	</head>
+	<app:body runat="server">
+		<form id="Form1" method="post" runat="server">
+			<app:scrlFix runat="server" withoutLibs="true" withoutIni="true" />
+			<uc:head runat="server" />
+			<main>
+				<nav id="nav">
+                    <div class="cnt">
+					    <uc:vars runat="server" />
+                    </div>
+					<div id="sizeBarA" class="sizeBar"></div>
+				</nav>
+				<div id="content" class="content"><div class="pane">
+					<cms:region runat="server" id="main" />
+					<div id="sizeBarB" class="sizeBar"></div>	
+				</div></div>
+			</main>
+		</form>
+	</app:body>
+</html>

@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<xs:schema id="JeyllPotPagemapConfig" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		xmlns="urn:Bet:ns:JellyPot:PagemapConfig"
+    targetNamespace="urn:Bet:ns:JellyPot:PagemapConfig" 
+    elementFormDefault="qualified"
+> 
+	<!-- ============================================================== -->
+	<!-- Zakladni definice -->                 
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+	<xs:element name="JellyPotDef">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="Types" type="typeTypes" minOccurs="0" maxOccurs="1" />
+				<xs:element name="PageSlugs" type="typePageSlugs" minOccurs="0" maxOccurs="1" />
+				<xs:element name="SiteMap" type="typeSiteMap" minOccurs="0" maxOccurs="1" />
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+	
+	<!-- ============================================================== -->
+	<!-- Types -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+	<xs:complexType name="typeTypes">
+		<xs:sequence>
+			<xs:element name="Type" minOccurs="0" maxOccurs="unbounded" type="typeType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+	<!-- jednotlive datove typy -->
+	<!-- kolekce -->
+	<xs:complexType name="typeType">
+		<xs:attribute name="name" type="typeName" use="required" />
+		<xs:attribute name="page" type="xs:string" use="optional" />
+		<xs:attribute name="linkTo" type="xs:string" use="optional" />
+		<xs:attribute name="anchor" type="xs:string" use="optional" />
+		<xs:attribute name="argField" type="xs:string" use="optional" />
+		<xs:attribute name="seoName" type="xs:string" use="optional" />
+		<xs:attribute name="takeAs" type="xs:string" use="optional" />
+	</xs:complexType>
+
+	<!-- ============================================================== -->
+	<!-- SiteMap -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:complexType name="typeSiteMap">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:group ref="groupSitePages" minOccurs="0" maxOccurs="unbounded" />
+		</xs:choice>
+	</xs:complexType>
+
+	<!-- Group -->
+	<xs:group name="groupSitePages">
+		<xs:choice>
+			<xs:element name="Page" type="typePage" />
+			<xs:element name="Virtual" type="typeVirtual" />
+		</xs:choice>
+	</xs:group>
+
+	<xs:complexType name="typePage">
+		<xs:group ref="groupSitePages" minOccurs="0" maxOccurs="unbounded" />
+		<xs:attribute name="href" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="typeVirtual">
+		<xs:group ref="groupSitePages" minOccurs="0" maxOccurs="unbounded" />
+		<xs:attribute name="name" use="required" />
+	</xs:complexType>
+
+	<!-- ============================================================== -->
+	<!-- PageSlugs -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<xs:complexType name="typePageSlugs">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Language">
+				<xs:complexType>
+					<xs:group ref="groupSlugs" minOccurs="0" maxOccurs="unbounded" />
+					<xs:attribute name="lang" type="xs:string" use="required" />
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+
+	<!-- Group -->
+	<xs:group name="groupSlugs">
+		<xs:choice>
+			<xs:element name="Page" type="typeSlugPage" />
+			<xs:element name="Dir" type="typeSlugDir" />
+		</xs:choice>
+	</xs:group>
+
+	<xs:complexType name="typeSlugPage">
+		<xs:attribute name="href" use="required" type="xs:string" />
+		<xs:attribute name="slug" use="required" type="xs:string" />
+	</xs:complexType>
+
+	<xs:complexType name="typeSlugDir">
+		<xs:attribute name="href" use="required" type="xs:string" />
+		<xs:attribute name="slug" use="required" type="xs:string" />
+	</xs:complexType>
+
+	<!-- ============================================================== -->
+	<!-- Obecne dilci typy -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+	<!-- nazev promenne a typu -->
+	<xs:simpleType name="typeName">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Za-z][A-Za-z0-9_]*" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="typeProjectName">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Za-z0-9-_]{3,25}" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="typeBool">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="false" />
+			<xs:enumeration value="true" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="typeTrue">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="true" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="typeOrderDirection">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="asc" />
+			<xs:enumeration value="desc" />
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>

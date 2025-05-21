@@ -1,0 +1,662 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<xs:schema id="JellyPotSiteConfig" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		xmlns="urn:Bet:ns:JellyPot:SiteConfig"
+    targetNamespace="urn:Bet:ns:JellyPot:SiteConfig" 
+    elementFormDefault="qualified"
+> 
+	<!-- ============================================================== -->
+	<!-- Zakladni definice -->                 
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+	<xs:element name="JellyPotDef">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="Project" type="typeProject" minOccurs="1" maxOccurs="1" />
+				<xs:element name="Languages" type="typeLanguages" minOccurs="0" maxOccurs="1" />
+				<xs:element name="Formats" type="typeFormats" minOccurs="0" maxOccurs="1" />				
+				<xs:element name="UserGroupSets" type="typeUserGroupSets" minOccurs="0" maxOccurs="1" />				
+				<!--xs:element name="UserGroupSets" type="typeUserGroupSets" minOccurs="0" maxOccurs="1" /-->	
+				<xs:element name="Vars" type="typeVars" minOccurs="0" maxOccurs="1" />
+				<xs:element name="Types" type="typeTypes" minOccurs="0" maxOccurs="1" />
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- ============================================================== -->
+	<!-- Projekt -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+	<xs:complexType name="typeProject">
+		<xs:attribute name="name" type="typeProjectName" use="required" />
+		<xs:attribute name="title" type="xs:string" use="optional" />
+		<xs:attribute name="desc" type="xs:string" use="optional" />
+	</xs:complexType>
+	
+	<!-- ============================================================== -->
+	<!-- Language -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+	<xs:complexType name="typeLanguages">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Language">
+				<xs:complexType>
+					<xs:attribute name="name" type="xs:string" use="required" />
+					<xs:attribute name="title" type="xs:string" use="optional" />
+					<xs:attribute name="fulltextLanguage" type="xs:string" use="optional" />
+					<xs:attribute name="culture" type="xs:string" use="optional" />
+					<xs:attribute name="relatedLangs" type="xs:string" use="optional" />
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+
+	<!-- ============================================================== -->
+	<!-- Formats -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+	<xs:complexType name="typeFormats">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Format">
+				<xs:complexType>
+					<xs:attribute name="name" type="typeName" use="required" />
+					<xs:attribute name="format" type="xs:string" use="required" />
+          <xs:attribute name="culture" type="xs:string" use="optional" />
+        </xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+
+	<!-- ============================================================== -->
+	<!-- Groups -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+	<xs:complexType name="typeUserGroupSets">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="UserGroup">
+				<xs:complexType>
+					<xs:attribute name="name" type="typeName" use="required" />
+					<xs:attribute name="title" type="xs:string" use="optional" />
+					<xs:attribute name="desc" type="xs:string" use="optional" />
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SysUserGroup">
+				<xs:complexType>
+					<xs:attribute name="name" type="typeSysGroupName" use="required" />
+					<xs:attribute name="title" type="xs:string" use="optional" />
+					<xs:attribute name="desc" type="xs:string" use="optional" />
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Set">
+				<xs:complexType>
+					<xs:attribute name="name" type="typeName" use="required" />
+					<xs:attribute name="members" type="xs:string" use="required" />
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+
+<!--	<xs:complexType name="typeUserGroupSets">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="UserGroupSet">
+				<xs:complexType>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="UserGroup">
+							<xs:complexType>
+								<xs:attribute name="name" type="typeName" use="required" />
+								<xs:attribute name="title" type="xs:string" use="optional" />
+								<xs:attribute name="desc" type="xs:string" use="optional" />
+							</xs:complexType>
+						</xs:element>
+					</xs:choice>
+					<xs:attribute name="name" type="typeName" use="required" />
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>	
+	</xs:complexType> -->
+
+	<!-- jmena systemovych skupin -->
+	<xs:simpleType name="typeSysGroupName">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="anybody" />
+			<xs:enumeration value="user" />
+			<xs:enumeration value="editor" />
+			<xs:enumeration value="admin" />
+			<xs:enumeration value="sysAdmin" />
+			<xs:enumeration value="nobody" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- ============================================================== -->
+	<!-- Vars -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+  <xs:complexType name="typeVars">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Group" type="typeVarsGroup" />
+			<xs:group ref="groupVars" minOccurs="0" maxOccurs="unbounded" />
+		</xs:choice>
+  </xs:complexType>
+	
+	<!-- Group -->
+	<xs:complexType name="typeVarsGroup">
+		<xs:group ref="groupVars" minOccurs="0" maxOccurs="unbounded" />
+		<xs:attribute name="title" use="required" />
+	</xs:complexType>
+
+	<!-- spolecne elementy v ramci group nebo samostane -->
+	<xs:group name="groupVars">
+		<xs:choice>
+			<xs:element name="Var" type="typeVarsVar" />
+			<xs:element name="Collection" type="typeElCollection" />
+			<xs:element name="Custom" type="typeVarsCustom" />
+			<xs:element name="CustomWriter" type="typeVarsCustomWriter" />
+			<xs:element name="Spammer" type="typeSpammer" />
+			<xs:element name="FileCollection" type="typeFileCollection" />
+			<xs:element name="FileGallery" type="typeFileCollection" />
+		</xs:choice>
+	</xs:group>
+
+	<!-- Var -->
+	<xs:complexType name="typeVarsVar">
+		<xs:attributeGroup ref="baseAtts" />
+		<xs:attribute name="type" type="typeName" use="required" />
+		<xs:attributeGroup ref="allowEditAtts" />
+	</xs:complexType>
+
+	<!-- Collection je definovano v ramci jednotlivych typu -->
+
+	<!-- Custom -->
+	<xs:complexType name="typeVarsCustom">
+    <xs:choice  minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="Custom" type="typeVarsCustomInner" />
+    </xs:choice>
+    <xs:attribute name="name" type="typeName" use="required" />
+		<xs:attribute name="title" type="xs:string" use="optional" />
+		<xs:attribute name="control" type="xs:string" use="required" />
+		<xs:attributeGroup ref="allowEditAtts" />
+	</xs:complexType>
+
+  <!-- Inner custom -->
+  <xs:complexType name="typeVarsCustomInner">
+    <xs:attribute name="name" type="typeName" use="required" />
+    <xs:attribute name="control" type="xs:string" use="required" />
+  </xs:complexType>
+  
+	<!-- CustomSection -->
+	<xs:complexType name="typeVarsCustomWriter">
+		<xs:attribute name="type" type="xs:string" use="optional" />
+		<xs:attribute name="control" type="xs:string" use="optional" />
+		<xs:attributeGroup ref="allowEditAtts" />
+	</xs:complexType>
+
+	<!-- Spammer -->
+	<xs:complexType name="typeSpammer">
+		<xs:attribute name="name" type="typeName" use="required" />
+		<xs:attribute name="title" type="xs:string" use="optional" />
+		<xs:attribute name="desc" type="xs:string" use="optional" />
+		<xs:attribute name="itemType" type="typeName" use="required" />
+		<xs:attribute name="mailTemplateFile" type="xs:string" use="required" />
+		<xs:attribute name="mailFormat" type="typeMailFormat" use="optional" />
+		<xs:attributeGroup ref="allowEditAtts" />
+	</xs:complexType>
+	
+	<!-- Format hromadneho mailu -->
+	<xs:simpleType name="typeMailFormat">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="text" />
+			<xs:enumeration value="html" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- ============================================================== -->
+	<!-- Types -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+	<xs:complexType name="typeTypes">
+		<xs:sequence>
+			<xs:element name="Type" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:choice minOccurs="1" maxOccurs="unbounded">
+						<xs:element name="Collection" type="typeElCollection" />
+            <xs:element name="SimpleText" type="typeElSimpleText" />
+						<xs:element name="Text" type="typeElText" />
+            <xs:element name="TinyText" type="typeElTinyText" />
+            <xs:element name="SimpleTable" type="typeElSimpleTable" />
+						<xs:element name="Int" type="typeElInt" />
+						<xs:element name="Decimal" type="typeElDecimal" />
+						<xs:element name="Bool" type="typeElBool" />
+						<xs:element name="Date" type="typeElDate" />
+						<xs:element name="DateTime" type="typeElDateTime" />
+						<xs:element name="Reference" type="typeElReference" />
+						<xs:element name="ReferenceCollection" type="typeElReferenceCollection" />
+						<xs:element name="Img" type="typeImg" />
+						<xs:element name="ImgCollection" type="typeImgCollection" />
+						<xs:element name="SimpleImg" type="typeSimpleImg" />
+						<xs:element name="File" type="typeFile" />
+						<xs:element name="FileCollection" type="typeFileCollection" />
+						<xs:element name="Const" type="typeElConst" />
+						
+						<xs:element name="UserGroups" type="typeElUserGroups" />
+						<xs:element name="CustomField" type="typeElCustomField" />
+            <xs:element name="SystemField" type="typeElSystemField" />
+          </xs:choice>
+					
+					<xs:attribute name="name" type="typeName" use="required" />
+					<xs:attribute name="title" type="xs:string" use="optional" />
+					<xs:attribute name="desc" type="xs:string" use="optional" />
+
+					<xs:attribute name="urlSlug" type="xs:string" use="optional" />
+					<xs:attribute name="control" type="xs:string" use="optional" />
+ 				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+  <!-- ============================================================== -->
+  <!-- Skupiny atributu -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- zakladni atributy datovych typu -->
+	<xs:attributeGroup name="baseAtts">
+		<xs:attribute name="name" type="typeName" use="required" />
+		<xs:attribute name="title" type="xs:string" use="optional" />
+		<xs:attribute name="desc" type="xs:string" use="optional" />
+		<xs:attribute name="exiOptions" type="typeExiOptions" use="optional" />
+	</xs:attributeGroup>
+
+  <!-- spolecne atributy pro definice moznosti viditelnost promennych a poli v admin rozhrani -->
+  <xs:attributeGroup name="allowEditAtts">
+    <xs:attribute name="allowEditFor" type="xs:string" use="optional" />
+    <xs:attribute name="denyEditFor" type="xs:string" use="optional" />
+  </xs:attributeGroup>
+
+  <!-- ============================================================== -->
+  <!-- jednotlive datove typy -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- kolekce -->
+	<xs:complexType name="typeElCollection">
+		<xs:attributeGroup ref="baseAtts" />
+		<xs:attributeGroup ref="allowEditAtts" />
+		<xs:attribute name="itemType" type="xs:string" use="required" />
+    <xs:attribute name="allowedTypes" type="xs:string" use="optional" />
+		<xs:attribute name="defaultOrder" type="xs:string" use="optional" />
+		<xs:attribute name="langDepend" type="typeLangDependCol" use="optional" />
+		<xs:attribute name="itemFormatType" type="typeItemFormatType" use="optional" />
+		<xs:attribute name="itemFormat" type="xs:string" use="optional" />
+		<xs:attribute name="allowBulkAdd" type="typeBool" use="optional" />
+		<xs:attribute name="categorizeBy" type="xs:string" use="optional" />
+		<xs:attribute name="withFilter" type="typeBool" use="optional" />
+	</xs:complexType>
+
+	<!-- simple text -->
+	<xs:complexType name="typeElSimpleText">
+		<xs:attributeGroup ref="baseAtts" />
+		<xs:attributeGroup ref="allowEditAtts" />
+		<xs:attribute name="langDepend" type="typeLangDepend" use="optional" />
+    <xs:attribute name="textInterpretation" type="typeSimpleTextInterpretation" use="optional" />
+    <xs:attribute name="width" type="xs:string" use="optional" />
+		<xs:attribute name="required" type="typeBool" use="optional" />
+		<xs:attribute name="searchable" type="typeBool" use="optional" />
+		<xs:attribute name="searchPriority" type="xs:int" use="optional" />
+	</xs:complexType>
+	
+	<!-- text -->
+	<xs:complexType name="typeElText">
+		<xs:attributeGroup ref="baseAtts" />
+		<xs:attributeGroup ref="allowEditAtts" />
+		<xs:attribute name="langDepend" type="typeLangDepend" use="optional" />
+		<xs:attribute name="textInterpretation" type="typeTextInterpretation" use="optional" />
+		<xs:attribute name="size" type="xs:int" use="optional" />
+		<xs:attribute name="required" type="typeBool" use="optional" />
+		<xs:attribute name="searchable" type="typeBool" use="optional" />
+    <xs:attribute name="searchPriority" type="xs:int" use="optional" />
+  </xs:complexType>
+
+  <!-- text tiny -->
+  <xs:complexType name="typeElTinyText">
+    <xs:attributeGroup ref="baseAtts" />
+    <xs:attributeGroup ref="allowEditAtts" />
+    <xs:attribute name="langDepend" type="typeLangDepend" use="optional" />
+    <xs:attribute name="size" type="xs:int" use="optional" />
+    <xs:attribute name="required" type="typeBool" use="optional" />
+    <xs:attribute name="searchable" type="typeBool" use="optional" />
+    <xs:attribute name="tinyStyle" type="xs:string" use="optional" />
+    <xs:attribute name="tinyConfig" type="xs:string" use="optional" />
+  </xs:complexType>
+
+  <!-- table -->
+	<xs:complexType name="typeElSimpleTable">
+		<xs:attributeGroup ref="baseAtts" />
+		<xs:attributeGroup ref="allowEditAtts" />
+		<xs:attribute name="langDepend" type="typeLangDepend" use="optional" />
+		<xs:attribute name="size" type="xs:int" use="optional" />
+		<!-- TODO: nemuze mit tento atribut, pokud je pole jazykove zavisle -->
+		<!--<xs:attribute name="defaultValue" type="xs:string" use="optional" />-->
+		<xs:attribute name="required" type="typeBool" use="optional" />
+	</xs:complexType>
+
+	<!-- int -->
+	<xs:complexType name="typeElInt">
+		<xs:attributeGroup ref="baseAtts" />
+		<xs:attributeGroup ref="allowEditAtts" />
+		<xs:attribute name="langDepend" type="typeLangDepend" use="optional" />
+		<xs:attribute name="required" type="typeBool" use="optional" />
+		<xs:attribute name="defaultValue" type="xs:int" use="optional" />
+	</xs:complexType>
+
+	<!-- decimal -->
+	<xs:complexType name="typeElDecimal">
+		<xs:attributeGroup ref="baseAtts" />
+		<xs:attributeGroup ref="allowEditAtts" />
+		<xs:attribute name="langDepend" type="typeLangDepend" use="optional" />
+		<xs:attribute name="precision" type="typePrecision" use="optional" />
+		<xs:attribute name="required" type="typeBool" use="optional" />
+		<xs:attribute name="defaultValue" type="xs:float" use="optional" />
+	</xs:complexType>
+
+	<!-- bool -->
+	<xs:complexType name="typeElBool">
+		<xs:attributeGroup ref="baseAtts" />
+		<xs:attributeGroup ref="allowEditAtts" />
+		<xs:attribute name="defaultValue" type="typeBool" />
+	</xs:complexType>
+
+	<!-- konstanta -->
+	<xs:complexType name="typeElConst">
+		<xs:attributeGroup ref="baseAtts" />
+		<xs:attribute name="value" type="xs:string" use="required"  />
+	</xs:complexType>
+
+	<!-- datum -->
+	<xs:complexType name="typeElDate">
+		<xs:attributeGroup ref="baseAtts" />
+		<xs:attributeGroup ref="allowEditAtts" />
+		<xs:attribute name="langDepend" type="typeLangDepend" use="optional" />
+		<xs:attribute name="required" type="typeBool" use="optional" />
+		<xs:attribute name="defaultValue" type="xs:string" use="optional" />
+	</xs:complexType>
+
+	<!-- datum a cas -->
+	<xs:complexType name="typeElDateTime">
+		<xs:attributeGroup ref="baseAtts" />
+		<xs:attributeGroup ref="allowEditAtts" />
+		<xs:attribute name="langDepend" type="typeLangDepend" use="optional" />
+		<xs:attribute name="required" type="typeBool" use="optional" />
+		<xs:attribute name="defaultValue" type="xs:string" use="optional" />
+	</xs:complexType>
+	
+	<!-- img -->
+	<xs:complexType name="typeImg">
+		<xs:sequence>
+			<xs:element name="Size" type="typeImgSize" minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attributeGroup ref="baseAtts" />
+		<xs:attributeGroup ref="allowEditAtts" />
+		<xs:attribute name="langDepend" type="typeLangDepend" use="optional" />
+		<xs:attribute name="inputHeight" type="xs:string" use="optional" />
+		<xs:attribute name="inputWidth" type="xs:string" use="optional" />
+		<xs:attribute name="inputRatio" type="xs:string" use="optional" />
+		<xs:attribute name="useAlt" type="typeBool" use="optional" />
+    <xs:attribute name="required" type="typeBool" use="optional" />
+	</xs:complexType>
+
+	<!-- imgCollection -->
+	<xs:complexType name="typeImgCollection">
+		<xs:sequence>
+			<xs:element name="Size" type="typeImgSize" minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+		<xs:attributeGroup ref="baseAtts" />
+		<xs:attributeGroup ref="allowEditAtts" />
+		<xs:attribute name="langDepend" type="typeLangDependFieldCol" use="optional" />
+		<xs:attribute name="inputHeight" type="xs:string" use="optional" />
+		<xs:attribute name="inputWidth" type="xs:string" use="optional" />
+		<xs:attribute name="inputRatio" type="xs:string" use="optional" />
+		<xs:attribute name="useAlt" type="typeBool" use="optional" />
+    <xs:attribute name="required" type="typeBool" use="optional" />
+  </xs:complexType>
+
+	<!-- imgSize -->
+	<xs:complexType name="typeImgSize">
+		<xs:attribute name="name" type="typeName" use="required" />
+		<xs:attribute name="path" type="typeFilePath" use="optional" />
+		<xs:attribute name="securePath" type="typeSecurePathName" use="optional" />
+    <!-- hodnoty atributu width a height jsou kontrolovany aplikacne -->
+    <xs:attribute name="width" type="xs:string" use="optional" />
+		<xs:attribute name="height" type="xs:string" use="optional" />
+		<xs:attribute name="resizeTo" type="xs:string" use="optional" />
+		<xs:attribute name="cropMode" type="typeImgCropMode" use="optional" />
+    <xs:attribute name="enlargeMode" type="typeImgEnlargeMode" use="optional" />
+    <xs:attribute name="quality" type="xs:int" use="optional" />
+		<xs:attribute name="resolution" type="xs:float" use="optional" />
+		<xs:attribute name="allwaysResize" type="typeBool" use="optional" />
+	</xs:complexType>
+
+	<!-- simple image -->
+	<xs:complexType name="typeSimpleImg">
+		<xs:attributeGroup ref="baseAtts" />
+		<xs:attributeGroup ref="allowEditAtts" />
+		<xs:attribute name="langDepend" type="typeLangDepend" use="optional" />
+		<xs:attribute name="path" type="typeFilePath" use="optional" />
+		<xs:attribute name="securePath" type="typeSecurePathName" use="optional" />
+		<xs:attribute name="useAlt" type="typeBool" use="optional" />
+		<xs:attribute name="clickable" type="typeBool" use="optional" />
+    <xs:attribute name="required" type="typeBool" use="optional" />
+	</xs:complexType>
+
+	<!-- soubor -->
+	<xs:complexType name="typeFile">
+		<xs:attributeGroup ref="baseAtts" />
+		<xs:attributeGroup ref="allowEditAtts" />
+		<xs:attribute name="path" type="typeFilePath" use="optional" />
+		<xs:attribute name="securePath" type="typeSecurePathName" use="optional" />
+		<xs:attribute name="langDepend" type="typeLangDepend" use="optional" />
+		<xs:attribute name="required" type="typeBool" use="optional" />
+		<xs:attribute name="useAlt" type="typeBool" use="optional" />
+    
+	</xs:complexType>
+
+	<!-- kolekce souboru -->
+	<xs:complexType name="typeFileCollection">
+		<xs:attributeGroup ref="baseAtts" />
+		<xs:attributeGroup ref="allowEditAtts" />
+		<xs:attribute name="path" type="typeFilePath" use="optional" />
+		<xs:attribute name="securePath" type="typeSecurePathName" use="optional" />
+		<xs:attribute name="langDepend" type="typeLangDependFieldCol" use="optional" />
+		<xs:attribute name="required" type="typeBool" use="optional" />
+		<xs:attribute name="useAlt" type="typeBool" use="optional" />
+   
+	</xs:complexType>
+
+	<!-- reference -->
+	<xs:complexType name="typeElReference">
+		<xs:attributeGroup ref="baseAtts" />
+		<xs:attributeGroup ref="allowEditAtts" />
+    <!-- targetCol je synonymem pro sourceCol - casem atribut targetCol vyhodit -->
+		<xs:attribute name="targetCol" type="xs:string" use="optional" />
+    <xs:attribute name="sourceCol" type="xs:string" use="optional" />
+    <xs:attribute name="sourceMethod" type="xs:string" use="optional" />
+    <xs:attribute name="sourceVarType" type="xs:string" use="optional" />
+    <xs:attribute name="itemFormat" type="xs:string" use="optional" />
+		<xs:attribute name="required" type="typeBool" use="optional" />
+		<xs:attribute name="width" type="xs:string" use="optional" />
+	</xs:complexType>
+
+	<!-- reference M to N-->
+	<xs:complexType name="typeElReferenceCollection">
+		<xs:attributeGroup ref="baseAtts" />
+		<xs:attributeGroup ref="allowEditAtts" />
+    <!-- targetCol je synonymem pro sourceCol - casem atribut targetCol vyhodit -->
+    <xs:attribute name="targetCol" type="xs:string" use="optional" />
+    <xs:attribute name="sourceCol" type="xs:string" use="optional" />
+    <!-- zatim docasne vyhozeno -->
+		<!--
+    <xs:attribute name="sourceMethod" type="xs:string" use="optional" />
+    <xs:attribute name="sourceVarType" type="xs:string" use="optional" />
+    -->
+    <xs:attribute name="itemFormat" type="xs:string" use="optional" />
+		<xs:attribute name="defaultOrder" type="xs:string" use="optional" />
+		<xs:attribute name="langDepend" type="typeLangDepend" use="optional" />
+		<xs:attribute name="required" type="typeBool" use="optional" />
+	</xs:complexType>
+	
+	<!-- prirazeni skupin -->
+	<xs:complexType name="typeElUserGroups">
+		<xs:attributeGroup ref="baseAtts" />
+		<xs:attributeGroup ref="allowEditAtts" />
+		<xs:attribute name="set" type="typeName" use="required" />
+    <xs:attribute name="langDepend" type="typeLangDepend" use="optional" />
+    <xs:attribute name="defaultValue" type="xs:string" />
+	</xs:complexType>
+
+	<!-- vlastni control - pole -->
+	<xs:complexType name="typeElCustomField">
+		<!--xs:attributeGroup ref="baseAtts" /-->
+		<xs:attribute name="name" type="typeName" use="required" />
+		<xs:attributeGroup ref="allowEditAtts" />
+		<xs:attribute name="control" type="xs:string" use="required" />
+	</xs:complexType>
+
+  <!-- vlastni control - pole -->
+  <xs:complexType name="typeElSystemField">
+    <!--xs:attributeGroup ref="baseAtts" /-->
+    <xs:attribute name="name" type="typeName" use="required" />
+    <xs:attribute name="searchable" type="typeBool" use="optional" />
+    <xs:attribute name="searchPriority" type="xs:int" use="optional" />
+  </xs:complexType>
+
+  <!-- ============================================================== -->
+	<!-- Obecne dilci typy -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<!-- nazev promenne a typu -->
+	<xs:simpleType name="typeName">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Za-z][A-Za-z0-9_,]{0,254}" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="typeProjectName">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Za-z0-9-_]{3,25}" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="typeFilePath">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Za-z0-9/_-]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="typeSecurePathName">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Za-z][A-Za-z0-9/_]*" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="typeBool">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="false" />
+			<xs:enumeration value="true" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="typeTrue">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="true" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="typeOrderDirection">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="asc" />
+			<xs:enumeration value="desc" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="typeLangDepend">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="none" />
+			<xs:enumeration value="first" />
+			<xs:enumeration value="firstValue" />
+			<xs:enumeration value="values" />
+			<xs:enumeration value="full" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="typeLangDependCol">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="none" />
+			<xs:enumeration value="full" />
+			<xs:enumeration value="items" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="typeLangDependFieldCol">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="none" />
+			<xs:enumeration value="first" />
+			<xs:enumeration value="firstValue" />
+			<xs:enumeration value="values" />
+			<xs:enumeration value="items" />
+			<xs:enumeration value="full" /><!-- kvuli zpetne kompatibilite - chytime v kontrole site.config -->
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="typeItemFormatType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="text" />
+			<xs:enumeration value="img" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- zpusob interpretace HTML znacek -->
+	<xs:simpleType name="typeTextInterpretation">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="plain" />
+			<xs:enumeration value="jeInlineRest" />
+			<xs:enumeration value="jeRest" />
+			<xs:enumeration value="html" />
+			<!--<xs:enumeration value="tiny" />-->
+		</xs:restriction>
+	</xs:simpleType>
+
+  <!-- zpusob interpretace HTML znacek -->
+  <xs:simpleType name="typeSimpleTextInterpretation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="plain" />
+      <xs:enumeration value="html" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- zpusob prepocitavani obrazku -->
+	<xs:simpleType name="typeImgCropMode">
+		<xs:restriction base="xs:string">
+      <xs:enumeration value="crop" />
+      <xs:enumeration value="place" />
+    </xs:restriction>
+	</xs:simpleType>
+
+  <!-- zpusob upravy velikosti obrazku -->
+  <xs:simpleType name="typeImgEnlargeMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="maintain" />
+      <xs:enumeration value="maximize" />
+      <xs:enumeration value="minimize" />
+      <xs:enumeration value="maintainCrop" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- presnost desetinneho cisla -->
+	<xs:simpleType name="typePrecision">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0" />
+			<xs:enumeration value="1" />
+			<xs:enumeration value="2" />
+			<xs:enumeration value="3" />
+			<xs:enumeration value="4" />
+			<xs:enumeration value="5" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- moznosti exportu a importu -->
+	<!-- tohle se nepouziva, pouze vycet pro informaci, jednotlive moznost spojovat pres | -->
+	<xs:simpleType name="typeExiOptions">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="noExport" />
+			<xs:enumeration value="export" />
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>

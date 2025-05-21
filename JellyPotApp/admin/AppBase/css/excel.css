@@ -1,0 +1,27 @@
+body { 
+	font-size: 8pt; font-family: Verdana;
+	margin: 10px 0px;
+	background: transparent;
+}
+
+table { border-collapse: collapse; }
+h1 { font-size: 10pt; font-weight: bold; }
+h2 { font-size: 9pt; font-weight: bold; }
+tr { height: 15pt; }
+td { font-size: 8pt; vertical-align: top; }
+
+td.head { font-size: 8pt; font-weight: bold; text-align: left; border-bottom: .5pt solid windowtext; }
+td.headR { font-size: 8pt; font-weight: bold; text-align: right; border-bottom: .5pt solid windowtext; }
+td.headBG { font-size: 8pt; font-weight: bold; text-align: left; border-bottom: .5pt solid windowtext; border-left: .5pt solid windowtext; }
+td.headRBG { font-size: 8pt; font-weight: bold; text-align: right; border-bottom: .5pt solid windowtext; border-left: .5pt solid windowtext; }
+td.headGroup { font-size: 8pt; font-weight: bold; text-align: left; }
+td.headGroupR { font-size: 8pt; font-weight: bold; text-align: right; }
+td.headGroupBG { font-size: 8pt; font-weight: bold; text-align: left; border-left: .5pt solid windowtext; }
+td.headGroupRBG { font-size: 8pt; font-weight: bold; text-align: right; border-left: .5pt solid windowtext; }
+
+.right { text-align: right; }
+.R { text-align: right; }
+
+.bGroup { border-left: .5pt solid windowtext; }
+.BG { border-left: .5pt solid windowtext; }
+.BGR { border-left: .5pt solid windowtext; text-align: right; }

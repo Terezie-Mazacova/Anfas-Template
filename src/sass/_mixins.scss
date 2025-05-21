@@ -1,0 +1,39 @@
+// stejná šířka a výška
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+// zjemění přechodu mezi barvami
+@mixin color-transition {
+  transition: color $timing-quick linear;
+}
+
+// vytvoření stylů tříd z scss mapy
+@mixin create-typo($className, $typo-sizes) {
+    @each $size-key, $size-values in $typo-sizes {
+        @include breakpoint(#{$size-key}) {
+            @each $typo-key, $typo in $size-values {
+                .#{$className}-#{$typo-key} {
+                    @each $atribute, $value in $typo {
+                      @if $atribute == 'font-size' {
+                        #{$atribute}: #{$value}rem;
+                      } @else {
+                        #{$atribute}: #{$value};    
+                      }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Dotted border
+@mixin dotted-border {
+    // Safari & Chrome need border-style and border-color ¯\_(ツ)_/¯
+  	border-style: dotted;
+  	border-color: rgba(213, 126, 0, 1);
+  	border-image-source: url('../img/dots.svg');
+  	border-image-slice: 33% 33%;
+  	border-image-repeat: round;
+}

@@ -1,0 +1,49 @@
+<%@ Master %>
+<je:if runat="server" condition="settings.secured">
+    <then>
+        <je:securePage runat="server" visibleFor="editor" />
+    </then>
+</je:if>
+<!DOCTYPE html>
+<html lang="<je:item runat="server" field="jelly.lang"/>" <je:region runat="server" id="htmltag" />>
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <je:region runat="server" id="headTop" />
+    <je:item runat="server" field="headCode.code" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="icon" type="image/ico" href="/assets/img/favicon.ico" />
+    <je:stylelink runat="server" href="/assets/css/main.css?v=00" />
+    <je:region runat="server" id="head" />
+    <je:scriptLink runat="server" src="/assets/js/jquery.min.js" />
+    <je:scriptLink runat="server" src="/assets/js/orejime.js?v=03" />
+</head>
+<body class="<je:if runat="server" condition="cookies.big"><then>cookies--big</then><else>cookies--small</else></je:if>">
+    <je:item runat="server" field="headerCode.code" />
+
+    <header class="header <je:region runat="server" id="headerClass" />">
+      <div class="header__container">
+        <%@ Register tagPrefix="uc" tagName="nav" src="~/controls/navigation.ascx" %>
+        <uc:nav runat="server" />
+      </div>
+    </header>
+    
+    <main class="<je:region runat="server" id="mainClass" />" id="main">
+        <je:region runat="server" id="main" />
+    </main>
+
+    <%@ Register tagPrefix="uc" tagName="footer" src="~/controls/footer.ascx" %>
+    <uc:footer runat="server" />
+
+    <%@ Register tagPrefix="uc" tagName="cookies" src="~/controls/cookies.ascx" %>
+    <uc:cookies runat="server" />
+
+    <%-- Foundation --%>
+    <je:scriptLink runat="server" src="/assets/js/foundation.min.js?v=01" />
+    <je:scriptLink runat="server" src="/assets/js/main.js?v=00" />
+
+    <je:region runat="server" id="footerScripts" />
+    <je:item runat="server" field="footerCode.code" />
+</body>
+</html>

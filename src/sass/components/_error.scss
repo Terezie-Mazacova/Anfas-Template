@@ -1,0 +1,63 @@
+.error {
+    min-height: calc(100vh - 16rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 18rem;
+        font-weight: 600;
+        color: $primary;
+        opacity: .05;
+        @include breakpoint ("medium") {
+            font-size: 30rem;
+        }
+        @include breakpoint ("xlarge") {
+            font-size: 60rem;
+        }
+    }
+    &__name {
+        color: #A4A4A4;
+        text-transform: uppercase;
+        font-size: 1.6rem;
+        font-weight: 600;
+        @include breakpoint ("medium") {
+            font-size: 1.8rem;
+        }
+    }
+    &__title {
+        font-weight: 600;
+        color: $primary;
+        font-size: 4rem;
+        @include breakpoint ("medium") {
+            font-size: 6rem;
+        }
+        @include breakpoint ("xlarge") {
+            font-size: 10rem;
+        }
+    }
+    &__text {
+        text-align: center;
+        color: $text;
+        a {
+            font-weight: 600;
+            color: $primary;
+            text-decoration: underline;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}

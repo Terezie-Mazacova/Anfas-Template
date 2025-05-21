@@ -1,0 +1,67 @@
+/*---------------------------------------------------
+                  Global variables
+---------------------------------------------------*/
+
+// Fonts
+$font-p: 'HKGrotesk', sans-serif;
+$font-s: 'Playfair Display', serif;
+
+
+// Colors by name (automatically generetady by http://chir.ag/projects/name-that-color/)
+$colors: (
+  athensGray: rgb(239, 240, 243),
+);
+
+// Colors for social icons hover effect
+$hoverYoutube: rgba(205, 24, 30, 1);
+$hoverInsta: rgba(189, 50, 129, 1);
+$hoverFb: rgba(66, 104, 179, 1);
+$hoverGplus: rgb(219, 70, 57);
+$hoverTwitter: rgb(28, 160, 242);
+$hoverAnfas: #9ebe00;
+$hoverJellypot: #ff3886;
+$hoverLinkedIn: #0077B5;
+$success:       #5CAB7D;
+$error:         #c03546;
+$primary:       #000F9E;
+$text:          #333333;
+
+
+// timing
+$timing-quick: .1s;
+$timing-normal: .3s;
+$timing-long: 1s;
+
+// header
+$mobile-menu-timing: .15s;
+$logo-height: 8rem;
+$header-height-sm: 8rem; // Read from view inspector
+$header-height: 8rem;
+$header-height-lg-scrolled: 7rem;
+$header-group-item-margin: 2.5rem 0 0 0;
+$header-group-item-margin-sm: 0 0 0 3rem;
+
+// Container width
+$container-md: 100rem;
+$container-md-padding: 106rem;
+
+// Vertical spacing (např. na začátku sekce, po nadpisu apod.) (eg. at a beginning of a section, under a heading, etc.)
+//  - "vs" = vertical spacing
+$v-s-1: .5rem;
+$v-s-2: 1rem;
+$v-s-3: 2rem;
+$v-s-4: 3rem;
+$v-s-5: 4rem;
+$v-s-6: 6rem;
+$v-s-7: 8rem;
+$v-s-8: 10rem;
+$v-s-9: 12rem;
+$v-s-10: 2.25rem;
+
+
+// Horizontal spacing
+//  - "hs" = horizontal spacing
+$h-s-1: 1rem;
+$h-s-2: 2rem;
+$h-s-3: 12rem;
+$h-s-4: 1.5rem;

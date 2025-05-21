@@ -1,0 +1,29 @@
+.recipe {
+    &__item {
+        position: relative;
+        margin-top: 6rem;
+        &-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 1rem;
+        }
+        &-link {
+            color: blue;
+            text-decoration: underline;
+            font-size: 1.6rem;
+            margin-top: 1rem;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    &__page {
+        &-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 4rem 0;
+        }
+    }
+}

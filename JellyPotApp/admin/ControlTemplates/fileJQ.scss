@@ -1,0 +1,61 @@
+﻿// container obalujici cely control
+.jFileContainer {
+	position: relative;
+	margin-bottom: 10px;
+
+	// oznaceni, pokud obsah controlu neni validni
+	&.notValid {
+		background: #ffdede;
+	}
+
+	p {
+		margin: 0;
+	}
+	// styl pro tlacitko input type=file
+	input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		cursor: pointer;
+	}
+	// styl pro custom tlacitko, ktere to systemove prekryje
+	.jFileBt {
+		text-decoration: none;
+		cursor: pointer;
+		background: #eee;
+		display: inline-block;
+		padding: .2em 0.6em;
+		border: 1px solid #000;
+	}
+	// prvni radek se jmenem souboru
+	p.jFileName {
+		.fileName { // nazev souboru
+		}
+
+		.fileSize { // velikost souboru
+		}
+	}
+	// druhy radek s informacemi, co se prave deje
+	p.jFileAction {
+		.uploading { // hlaseni, ze se soubor nahrava
+		}
+
+		.uploadingSize { // zatim nahrana velikost
+		}
+
+		.uploadingPercentage { // procento
+		}
+
+		.actionLink { // link pro odebrani souboru
+			color: #00f;
+			cursor: default;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}

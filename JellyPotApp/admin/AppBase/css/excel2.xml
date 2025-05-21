@@ -1,0 +1,90 @@
+﻿  
+<Style ss:ID="h1">
+  <Font ss:Size="12" ss:Bold="1" />
+</Style>
+<Style ss:ID="th">
+  <Alignment ss:Horizontal="Center" ss:Vertical="Top" />
+  <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+  </Borders>
+  <Font ss:Bold="1"/>
+</Style>
+<Style ss:ID="thGroup">
+	<Alignment ss:Horizontal="Center" ss:Vertical="Top" />
+	<Font ss:Bold="1"/>
+</Style>
+
+<Style ss:ID="descislo2">
+  <Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:WrapText="1"/>
+  <NumberFormat ss:Format="#,##0.00"/>
+</Style>
+<Style ss:ID="descislo1">
+  <Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:WrapText="1"/>
+  <NumberFormat ss:Format="#,##0.0"/>
+</Style>
+<Style ss:ID="descislo0">
+  <Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:WrapText="1"/>
+  <NumberFormat ss:Format="#,##0"/>
+</Style>
+<Style ss:ID="cislo">
+  <Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:WrapText="1"/>
+  <NumberFormat ss:Format="0"/>
+</Style>
+<Style ss:ID="cisloPevne3">
+	<Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:WrapText="1"/>
+	<NumberFormat ss:Format="000"/>
+</Style>
+<Style ss:ID="procento2">
+  <Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:WrapText="1"/>
+  <NumberFormat ss:Format="#,##0.00%"/>
+</Style>
+<Style ss:ID="procento1">
+  <Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:WrapText="1"/>
+  <NumberFormat ss:Format="#,##0.0%"/>
+</Style>
+<Style ss:ID="procento0">
+  <Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:WrapText="1"/>
+  <NumberFormat ss:Format="#,##0%"/>
+</Style>
+
+<Style ss:ID="datum">
+  <Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:WrapText="1"/>
+  <NumberFormat ss:Format="Short Date"/>
+</Style>
+<Style ss:ID="datum2">
+	<Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:WrapText="1"/>
+	<NumberFormat ss:Format="d\.m\.yyyy"/>
+</Style>
+<Style ss:ID="datumCasHms">
+	<Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:WrapText="1"/>
+	<NumberFormat ss:Format="d\.m\.yyyy\,\ h:mm:ss"/>
+</Style>
+<Style ss:ID="cas">
+  <Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:WrapText="1"/>
+  <NumberFormat ss:Format="h:mm;@"/>
+</Style>
+<Style ss:ID="doba">
+  <Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:WrapText="1"/>
+  <NumberFormat ss:Format="[h]:mm;@"/>
+</Style>
+<Style ss:ID="text">
+	<Alignment ss:Vertical="Top" />
+</Style>
+<Style ss:ID="textZlom">
+	<Alignment ss:Vertical="Top" ss:WrapText="1" />
+</Style>
+
+<Style ss:ID="right">
+  <Alignment ss:Horizontal="Right" ss:Vertical="Top" />
+</Style>
+<Style ss:ID="center">
+  <Alignment ss:Horizontal="Center" ss:Vertical="Top" />
+</Style>
+<Style ss:ID="bold">
+  <Font ss:Bold="1" />
+</Style>
+<Style ss:ID="emptyBeforeSum">
+  <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+  </Borders>
+</Style>

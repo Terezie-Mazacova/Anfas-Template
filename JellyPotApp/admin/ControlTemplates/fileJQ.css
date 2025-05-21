@@ -1,0 +1,34 @@
+.jFileContainer {
+  position: relative;
+  margin-bottom: 10px;
+}
+.jFileContainer.notValid {
+  background: #ffdede;
+}
+.jFileContainer p {
+  margin: 0;
+}
+.jFileContainer input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.jFileContainer .jFileBt {
+  text-decoration: none;
+  cursor: pointer;
+  background: #eee;
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  border: 1px solid #000;
+}
+.jFileContainer p.jFileAction .actionLink {
+  color: #00f;
+  cursor: default;
+}
+.jFileContainer p.jFileAction .actionLink:hover {
+  text-decoration: underline;
+}/*# sourceMappingURL=fileJQ.css.map */
