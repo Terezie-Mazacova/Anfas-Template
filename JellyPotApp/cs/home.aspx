@@ -31,13 +31,13 @@
 
         <div class="row mb-4">
             <div class="column medium-12 small-12">
-                <je:item runat="server" field=".hometext" tag="p" class="intro-p" />
+                <je:item runat="server" field=".homeText" tag="p" class="intro-p" />
             </div>            
         </div>
 
         <div class="column medium-12 small-12">
             <div class="row mb-4">
-                <je:repeater runat="server" source=".hoteldesc">
+                <je:repeater runat="server" source=".hotelDesc">
                     <item>
                         <div class="column medium-4 small-12">
                             <je:item runat="server" field=".name" tag="p" class="hoteldesc-p" />
@@ -45,7 +45,7 @@
                                 <item>
                                     <div class="column medium-12 small-12">
                                         <je:img runat="server" field=".icon" class="offer-img" />
-                                        <je:item runat="server" field=".name" tag="p" class="offer.p" />
+                                        <je:item runat="server" field=".name" tag="p" class="offer-p" />
                                     </div>
                                 </item>
                             </je:repeater>
@@ -58,12 +58,23 @@
 
         <div class="column medium-12 small-12">
             <div class="row mb-4">
-                <je:repeater runat="server" source=".firstblock">
+                <je:repeater runat="server" source=".blocks">
                     <item>
-                        <div class="column medium-4 small-12">
+                        <div class="column medium-12 small-12">
                             <je:img runat="server" field=".photo" size="thumb" class="firstblock-img" />
-                            <je:item runat="server" field=".subtitle" tag="H2" class="firstblock-subtitle" />
+                            <je:item runat="server" field=".subTitle" tag="H2" class="firstblock-subtitle" />
                             <je:item runat="server" field=".text" tag="p" class="firstblock-p" />
+
+                            <je:repeater runat="server" source=".offer">
+                                <item>
+                                    <div class="column medium-12 small-12">
+                                        <je:img runat="server" field=".icon" class="offer-img" />
+                                        <je:item runat="server" field=".name" tag="p" class="offer-p" />
+                                    </div>
+                                </item>
+                            </je:repeater>
+
+                            <je:item runat="server" field=".note" tag="p" class="nic" />
                         </div>
                     </item>
                 </je:repeater>
@@ -78,9 +89,9 @@
                         <je:item runat="server" field=".text" tag="p" class="activity-p" />
                         <je:item runat="server" field=".btn" tag="a" class="activity-btn" />
                         <je:img runat="server" field=".photo" size="thumb" class="activity-img" />
-                        <je:item runat="server" field=".subtitle" tag="H3" class="activity-subtitle" />
+                        <je:item runat="server" field=".subTitle" tag="H3" class="activity-subtitle" />
 
-                        <je:repeater runat="server" source=".spendtime">
+                        <je:repeater runat="server" source=".spendTime">
                             <item>
                                 <div class="column medium-12 small-12">
                                     <je:img runat="server" field=".photo" size="thumb" class="spendtime-img" />
@@ -88,7 +99,6 @@
                                 </div>
                             </item>
                         </je:repeater>
-                        
                     </div>
                 </item>
             </je:repeater>
