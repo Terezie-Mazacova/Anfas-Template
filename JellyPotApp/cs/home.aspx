@@ -17,15 +17,15 @@
 <je:content runat="server" forRegion="headerClass">header--scroll</je:content>
 
 <je:content runat="server" forRegion="main">
-    <section class="canvas canvas--first canvas--white">
-        <div class="row mb-4 home__images">
-            <div class="column medium-12 small-12">
-                <je:repeater runat="server" source=".images">
-                    <item>
-                        <je:img runat="server" field=".photo" size="thumb" class="home__images" />
-                    </item>
-                </je:repeater>
-            </div>            
+    <section class="canvas canvas--first canvas--white atmosphere">
+        <div class="row mb-4 atmosphere__intro-img">
+            <je:repeater runat="server" source=".introImages">
+                <item>
+                    <div class="column medium-12 small-12">
+                        <je:img runat="server" field=".photo" size="thumb" class="atmosphere__intro-images" />
+                    </div>
+                </item>
+            </je:repeater>
         </div>
 
         <div class="row mb-4 home__homeText">

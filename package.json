@@ -1,9 +1,9 @@
 {
-  "name": "template",
+  "name": "stara-posta",
   "license": "MIT",
   "main": "gulpfile.js",
   "dependencies": {
-    "foundation-sites": "^6.4.1",
+    "foundation-sites": "6.5.3",
     "hapi": "^13.2.1",
     "node-sass": "^4.12.0"
   },
