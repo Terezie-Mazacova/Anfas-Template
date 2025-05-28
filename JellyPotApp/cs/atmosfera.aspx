@@ -32,25 +32,14 @@
         <div class="row atmosphere__intro-text">
             <div class="column medium-12 small-12">
                 <je:item runat="server" field=".title" tag="h1" class="atmosphere__main-title" />
-                <je:item runat="server" field=".note" tag="p" class="atmosphere__intro-p" />
+                <je:item runat="server" field=".note" tag="div" class="text " />
             </div>
         </div>
 
-        <div class="row atmosphere__facilities">
+        <div class="atmosphere__facilities">
             <je:repeater runat="server" source=".facilities">
                 <item>
-                    <div class="column medium-12 small-12">
-                        <je:img runat="server" field=".photo" size="thumb" class="atmosphere__facilities-images" />
-                        <je:item runat="server" field=".name" tag="span" class="atmosphere__facilities-span" />
-                    </div>
-                </item>
-            </je:repeater>
-        </div>
-
-        <div class="row atmosphere__facilities">
-            <je:repeater runat="server" source=".facilities">
-                <item>
-                    <div class="column medium-12 small-12">
+                    <div class="atmosphere-faci">
                         <je:img runat="server" field=".photo" size="thumb" class="atmosphere__facilities-images" />
                         <je:item runat="server" field=".name" tag="span" class="atmosphere__facilities-span" />
                     </div>
@@ -63,7 +52,7 @@
                 <item>
                     <div class="column medium-12 small-12">
                         <je:item runat="server" field=".title" tag="h2" class="atmosphere__InfoBlocks-subtitle" />
-                        <je:item runat="server" field=".text" tag="p" class="atmosphere__InfoBlocks-p" />
+                        <je:item runat="server" field=".text" tag="div" class="atmosphere__InfoBlocks-p" />
 
                         <je:repeater runat="server" source=".blockImages">
                             <item>
@@ -75,6 +64,13 @@
                     </div>
                 </item>
             </je:repeater>
+        </div>
+    </section>
+
+    <section class="canvas canfas--firts canvas--black">
+        <div class="row mb-4 atmosphere__intro-img">
+            <je:item runat="server" field=".title" tag="h1" class="atmosphere__main-title" />
+            <je:item runat="server" field=".note" tag="div" class="text " />
         </div>
     </section>
 </je:content>

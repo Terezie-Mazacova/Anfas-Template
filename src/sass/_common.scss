@@ -45,7 +45,7 @@ body {
   text-align: left;
 
   @include breakpoint ('large') {
-     font-size: 1.8rem;
+    font-size: 1.8rem;
   }
 }
 
@@ -64,6 +64,12 @@ a, .link {
   border: none;
   text-decoration: none;
   cursor: pointer;
+}
+
+
+.row-wide {
+  max-width: 200rem;
+  margin: 0 8rem;
 }
 
 // tables
@@ -107,7 +113,7 @@ td + td {
   z-index: 0;
 
   &--white {
-    background-color: white;
+    background-color: $beige;
   }
 
   &--black {
@@ -138,6 +144,17 @@ td + td {
 
   &--first {
     margin-top: 8rem;
+  }
+
+  &--jumbo {
+    margin-top: 7.5rem;
+    padding-top: 0;
+  }
+
+  &--footer2 {
+    margin-bottom: 9.2rem;
+    padding-top: 0;
+    background-color: $darkBrown;
   }
 }
 

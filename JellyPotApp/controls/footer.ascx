@@ -1,16 +1,18 @@
 <%@ Control %>
 
-<footer class="canvas canvas--footer">
+<footer class="canvas canvas--footer canvas--footer2 row-wide">
+    <!--
     <div class="row text-left">
         <div class="column medium-4 small-12">
             <a class="consent-modal-button"><je:text runat="server" textNode="Cookies/detailed" /></a>
         </div>
     </div>
+    -->
 
     <div class="row footer__loremIpsum">
         <je:repeater runat="server" source="footer.loremIpsum">
             <item>
-                <div class="column medium-12 small-12">
+                <div class="column medium-4 small-6">
                     <je:img runat="server" field=".photo" size="thumb" class="footer__spendtime-img" />
                 </div>
             </item>
@@ -35,7 +37,7 @@
 
                     <je:item runat="server" field=".info" tag="p" class="footer__secondPart-info" />
                     <je:item runat="server" field=".secondInfo" tag="p" class="footer__secondPart-secondInfo" />
-                    <je:img runat="server" field=".photoBg" size="thumb" class="footer__secondPart-photoBg" />
+                    <!--<je:img runat="server" field=".photoBg" size="thumb" class="footer__secondPart-photoBg" />-->
                 </div>
             </item>
         </je:repeater>
