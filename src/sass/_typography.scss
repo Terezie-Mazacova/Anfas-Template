@@ -26,13 +26,6 @@ $typo-title: (
   @include breakpoint ("medium") {
     font-size: 1.8rem;
   }
-  a {
-    color: inherit;
-    text-decoration: underline;
-    &:hover {
-      text-decoration: none;
-    }
-  }
   p {
     color: $text;
     font-size: 1.6rem;
@@ -126,8 +119,11 @@ $typo-title: (
   }
 
   &--lg {
+    h2 {
+      font-size: 5.5rem;
+    }
     h3 {
-      font-size: 30rem;
+      font-size: 4rem;
     }
   }
 }

@@ -1,3 +1,4 @@
+// == Intro Images ==
 .intro__images {
     display: flex;
     flex-wrap: wrap;
@@ -6,17 +7,22 @@
     
     &-img--big {
         width: 100%;
-        height: 101rem;
+        height: 100%;
         object-fit: cover;
         object-position: center;
+        padding-right: 2rem;
 
     }
 
     &-img--small {
+        display: block;
         width: 100%;
-        height: 50rem;
+        height: 50%;
         object-fit: cover;
         object-position: center;
+        & + & {
+            padding-top: 2rem;
+        }
     }
 
     &-big {
@@ -28,7 +34,9 @@
     }
 }
 
+// == Intro Text ==
 .intro__text {
+    font-family: $font-s;
     .intro__text-p {
         color: $darkBrown;
         font-weight: 400;
@@ -37,9 +45,13 @@
     }
 }
 
-
+// == Section Hotel/Depandance
 .hotel__desc {
     margin-bottom: $v-s-8;
+    margin-top: 4rem;
+    @include breakpoint ("medium") {
+        margin-top: 6rem;
+    }
 
     &-wrapper {
         display: flex;
@@ -48,6 +60,12 @@
         border: .0625rem solid $sandBrown;
         padding: 2.5rem 5rem;
         align-items: flex-start;
+        margin-top: 2rem;
+        height: calc(100% - 2rem);
+        @include breakpoint ("medium") {
+            margin-top: 0;
+            height: 100%;
+        }
     }
 
     &-title {
@@ -59,8 +77,12 @@
 
     &-container {
         display: flex;
-        gap: 2.5rem;
+        gap: 3rem;
         margin: 1.25rem 0 2.5rem 0;
+        flex-wrap: wrap;
+        @include breakpoint ("xlarge") {
+            flex-wrap: nowrap;
+        }
     }
 
     &-offer {
@@ -68,16 +90,18 @@
         align-items: center;
     }
     &-icon {
-        width: 66px;
-        height: 61px;
+        width: 5.5rem;
+        height: 5.5rem;
         object-fit: contain;
+        object-position: center right;
+        margin-right: 1rem;
     }
 
     &-note {
         color: $darkBrown;
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         font-weight: 600;
-        line-height: 132%;
+        line-height: 1.2;
     }
 
     &-a {
@@ -95,10 +119,10 @@
 
 
 
-
+// == Section Blocks ==
 .blocks__section {
     align-items: center;
-    max-width: 160rem;
+    //max-width: 160rem;
 
     @include breakpoint('medium'){
         &:nth-of-type(even) {
@@ -127,33 +151,60 @@
         line-height: 156%;
         margin-left: 1.5rem;
     }
+
+    &-img {
+
+        &--2 {
+            @include breakpoint ("medium") {
+                max-width: 60rem;
+            }
+        }
+
+        &--3 {
+            @include breakpoint ("medium") {
+                max-width: 60rem;
+            }
+        }
+    }
 }
 
 
 
 
-// == Sekce Aktivity ==
+// == Section Activity ==
 .activ__section {
     position: relative;
     background-color: $coffee;
-    padding: 0 0 144px 144px;
     
     &-img-wrapper {
         display: flex;
         justify-content: flex-end;
         width: 100%;
     }
-
+    &-img {
+        height: auto;
+        max-width: 70%;
+    }
     &-wrapper {
         position: absolute;
-        top: 10%;
-        left: 9%;
-        max-width: 63.4rem;
+        top: 12rem;
+        left: 12rem;
+        max-width: 60rem;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
     }
+    &-container {
+        padding: 4rem 12rem 12rem 12rem;
+    }
+    &-photos {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin-top: 4rem;
+    }
 
+    /*
     &-a {
         font-size: 1.6rem;
         font-weight: 700;
@@ -162,38 +213,42 @@
         background-color: $sandBrown;
         padding: 1.3rem 2.1rem;
     }
+        */
 }
 
 
 
 
 
+// == Section Explore ==
+.explore__section {
+    &-box {
+        &--2 {
+            @include breakpoint ("medium") {
+                padding-right: 20%;
+            }
+        }
 
+        &--3 {
+            @include breakpoint ("medium") {
+                padding-left: 30%;
+            }
+        }
 
-.explore__section-photo {
-    width: 100%;
-}
-
-.explore__section-shift {
-    margin-top: -5rem;
-}
-
-.explore__section-box {
-    &--2 {
-        @include breakpoint ("medium") {
-            padding-right: 20%;
+        &--6 {
+            @include breakpoint ("medium") {
+                padding-right: 20%;
+            }
         }
     }
 
-    &--3 {
-        @include breakpoint ("medium") {
-            padding-left: 30%;
-        }
+    &-shift {
+        margin-top: -5rem;
     }
 
-    &--6 {
-        @include breakpoint ("medium") {
-            padding-right: 20%;
-        }
+    &-photo {
+        width: 100%;
     }
+
 }
+

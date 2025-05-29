@@ -2493,9 +2493,9 @@ a, .link {
   text-decoration: none;
   cursor: pointer; }
 
-.row-wide {
+.row--wide {
   max-width: 200rem;
-  margin: 0 8rem; }
+  padding: 0 8rem; }
 
 table {
   width: 100%;
@@ -2690,11 +2690,6 @@ button:focus {
   @media print, screen and (min-width: 48em) {
     .text {
       font-size: 1.8rem; } }
-  .text a {
-    color: inherit;
-    text-decoration: underline; }
-    .text a:hover {
-      text-decoration: none; }
   .text p {
     color: #333333;
     font-size: 1.6rem; }
@@ -2769,8 +2764,10 @@ button:focus {
     font-size: 1.6rem; }
     .text--sm p {
       font-size: 1.6rem; }
+  .text--lg h2 {
+    font-size: 5.5rem; }
   .text--lg h3 {
-    font-size: 30rem; }
+    font-size: 4rem; }
 
 /* 
     utility classes
@@ -3186,26 +3183,36 @@ button:focus {
       align-items: stretch; }
   .intro__images-img--big {
     width: 100%;
-    height: 101rem;
+    height: 100%;
     object-fit: cover;
-    object-position: center; }
+    object-position: center;
+    padding-right: 2rem; }
   .intro__images-img--small {
+    display: block;
     width: 100%;
-    height: 50rem;
+    height: 50%;
     object-fit: cover;
     object-position: center; }
+    .intro__images-img--small + .intro__images-img--small {
+      padding-top: 2rem; }
   .intro__images-big {
     width: 70%; }
   .intro__images-small {
     width: 30%; }
 
-.intro__text .intro__text-p {
-  color: #423435;
-  font-weight: 400;
-  line-height: 157%; }
+.intro__text {
+  font-family: "Pridi", serif; }
+  .intro__text .intro__text-p {
+    color: #423435;
+    font-weight: 400;
+    line-height: 157%; }
 
 .hotel__desc {
-  margin-bottom: 10rem; }
+  margin-bottom: 10rem;
+  margin-top: 4rem; }
+  @media print, screen and (min-width: 48em) {
+    .hotel__desc {
+      margin-top: 6rem; } }
   .hotel__desc-wrapper {
     display: -ms-flexbox;
     display: flex;
@@ -3216,7 +3223,13 @@ button:focus {
     border: 0.0625rem solid #AF9B78;
     padding: 2.5rem 5rem;
     -ms-flex-align: start;
-        align-items: flex-start; }
+        align-items: flex-start;
+    margin-top: 2rem;
+    height: calc(100% - 2rem); }
+    @media print, screen and (min-width: 48em) {
+      .hotel__desc-wrapper {
+        margin-top: 0;
+        height: 100%; } }
   .hotel__desc-title {
     font-size: 3rem;
     font-weight: 400;
@@ -3225,22 +3238,30 @@ button:focus {
   .hotel__desc-container {
     display: -ms-flexbox;
     display: flex;
-    gap: 2.5rem;
-    margin: 1.25rem 0 2.5rem 0; }
+    gap: 3rem;
+    margin: 1.25rem 0 2.5rem 0;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+    @media screen and (min-width: 75em) {
+      .hotel__desc-container {
+        -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap; } }
   .hotel__desc-offer {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
         align-items: center; }
   .hotel__desc-icon {
-    width: 66px;
-    height: 61px;
-    object-fit: contain; }
+    width: 5.5rem;
+    height: 5.5rem;
+    object-fit: contain;
+    object-position: center right;
+    margin-right: 1rem; }
   .hotel__desc-note {
     color: #423435;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 600;
-    line-height: 132%; }
+    line-height: 1.2; }
   .hotel__desc-a {
     display: -ms-flexbox;
     display: flex;
@@ -3254,8 +3275,7 @@ button:focus {
 
 .blocks__section {
   -ms-flex-align: center;
-      align-items: center;
-  max-width: 160rem; }
+      align-items: center; }
   @media print, screen and (min-width: 48em) {
     .blocks__section:nth-of-type(even) {
       -ms-flex-direction: row-reverse;
@@ -3276,41 +3296,53 @@ button:focus {
     font-weight: 600;
     line-height: 156%;
     margin-left: 1.5rem; }
+  @media print, screen and (min-width: 48em) {
+    .blocks__section-img--2 {
+      max-width: 60rem; } }
+  @media print, screen and (min-width: 48em) {
+    .blocks__section-img--3 {
+      max-width: 60rem; } }
 
 .activ__section {
   position: relative;
   background-color: #EDE9E1;
-  padding: 0 0 144px 144px; }
+  /*
+    &-a {
+        font-size: 1.6rem;
+        font-weight: 700;
+        line-height: 156%;
+        color: $white;
+        background-color: $sandBrown;
+        padding: 1.3rem 2.1rem;
+    }
+        */ }
   .activ__section-img-wrapper {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: end;
         justify-content: flex-end;
     width: 100%; }
+  .activ__section-img {
+    height: auto;
+    max-width: 70%; }
   .activ__section-wrapper {
     position: absolute;
-    top: 10%;
-    left: 9%;
-    max-width: 63.4rem;
+    top: 12rem;
+    left: 12rem;
+    max-width: 60rem;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
         flex-direction: column;
     -ms-flex-align: start;
         align-items: flex-start; }
-  .activ__section-a {
-    font-size: 1.6rem;
-    font-weight: 700;
-    line-height: 156%;
-    color: #fff;
-    background-color: #AF9B78;
-    padding: 1.3rem 2.1rem; }
-
-.explore__section-photo {
-  width: 100%; }
-
-.explore__section-shift {
-  margin-top: -5rem; }
+  .activ__section-container {
+    padding: 4rem 12rem 12rem 12rem; }
+  .activ__section-photos {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 4rem; }
 
 @media print, screen and (min-width: 48em) {
   .explore__section-box--2 {
@@ -3323,6 +3355,26 @@ button:focus {
 @media print, screen and (min-width: 48em) {
   .explore__section-box--6 {
     padding-right: 20%; } }
+
+.explore__section-shift {
+  margin-top: -5rem; }
+
+.explore__section-photo {
+  width: 100%; }
+
+.btn {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 156%;
+  color: #fff;
+  background-color: #AF9B78;
+  padding: 1.3rem 2.1rem;
+  display: inline-block;
+  cursor: pointer;
+  transition: all ease .3s; }
+  .btn:hover {
+    background-color: #423435;
+    transition: all ease .3s; }
 
 .atmosphere__intro-img {
   display: -ms-grid;
@@ -3812,6 +3864,10 @@ button:focus {
   @media print, screen and (min-width: 48em) {
     .cookies--big .orejime-Notice-body {
       padding: 4rem 6rem; } }
+
+.footer {
+  background-color: #423435;
+  color: white; }
 
 .error {
   min-height: calc(100vh - 16rem);
