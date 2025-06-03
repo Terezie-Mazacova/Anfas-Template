@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <link rel="icon" type="image/ico" href="/assets/img/favicon.ico" />
-    <je:stylelink runat="server" href="/assets/css/main.css?v=05" />
+    <je:stylelink runat="server" href="/assets/css/main.css?v=08" />
     <je:region runat="server" id="head" />
     <je:scriptLink runat="server" src="/assets/js/jquery.min.js" />
     <je:scriptLink runat="server" src="/assets/js/orejime.js?v=03" />
@@ -29,6 +29,22 @@
       </div>
     </header>
     
+    <div class="submenu">
+        <je:a runat="server" href="rezervace.aspx" class="btn btn--lg submenu-btn">
+            <je:item runat="server" field="labels.rezervovat" />
+        </je:a>
+
+        <div class="submenu-links">
+            <je:repeater runat="server" source="navigation2">
+                <item>
+                    <je:a runat="server" href="{.navLink}" class="submenu-link">
+                        <je:item runat="server" field=".navItem" />
+                    </je:a>
+                </item>
+            </je:repeater>
+        </div>
+    </div>
+
     <main class="<je:region runat="server" id="mainClass" />" id="main">
         <je:region runat="server" id="main" />
     </main>

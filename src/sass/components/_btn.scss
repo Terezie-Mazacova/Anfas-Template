@@ -12,4 +12,11 @@
         background-color: $darkBrown;
         transition: all ease .3s;
     }
+
+    &--lg {
+        .btn {
+            font-size: 1.8rem;
+            width: 8rem;
+        }
+    }
 }

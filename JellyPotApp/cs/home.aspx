@@ -68,7 +68,11 @@
                             </div>
                             
 
-                            <je:item runat="server" field=".btn" tag="p" class="hotel__desc-a" />
+                            <je:a runat="server" href="{.link}" class="btn hotel__desc-a">
+                                <je:item runat="server" field=".btn" />
+                                <je:img runat="server" src="/assets/img/arrow.svg" class="hotel__desc-arrow" />
+                            </je:a>
+                            
                         </div>
                     </div>
                 </item>
@@ -196,8 +200,9 @@
 
                             <div class="activ__section-wrapper">
                                 <je:item runat="server" field=".text" tag="div" class="text text--lg activ__section-title" />
-                                <je:a runat="server" href="{.link}" class="btn mt-2">
+                                <je:a runat="server" href="{.link}" class="btn activ__section-a">
                                     <je:item runat="server" field=".btn" />
+                                    <je:img runat="server" src="/assets/img/arrow.svg" class="activ__section-arrow" />
                                 </je:a>
                             </div>
                             
@@ -210,7 +215,7 @@
                                 <div class="row">
                                     <je:repeater runat="server" source=".spendTime">
                                         <item>
-                                            <div class="column xlarge-2 large-3 medium-6 small-12">
+                                            <div class="column large-3 medium-6 small-12">
                                                 <je:img runat="server" field=".photo" size="thumb" class="activ__section-photos" />
                                             </div>
                                         </item>
@@ -230,14 +235,18 @@
         <div class="row explore__section">
             <je:repeater runat="server" source=".explore">
                 <item>
-                    <je:item runat="server" field=".title" tag="p" class="" />
+                    <je:item runat="server" field=".title" tag="h2" class="explore__section-title" />
                     <div class="row">
                         <je:repeater runat="server" source=".exploreMore">
                             <item>
                                 <div class="column medium-6 small-12">
                                     <div class="explore__section-box explore__section-box--<je:item runat="server" field=".itr" />">
                                         <je:img runat="server" field=".photo" size="thumb" class="explore__section-photo" />
-                                        <je:item runat="server" field=".btn" tag="p" class="explore__section-a" />
+                                        <!--<je:item runat="server" field=".btn" tag="h3" class="explore__section-a" />-->
+                                        <je:a runat="server" href="{.link}" class="explore__section-a">
+                                            <je:item runat="server" field=".btn" />
+                                            <je:img runat="server" src="/assets/img/arrow-brown.svg" class="explore__section-arrow" />
+                                        </je:a>
                                     </div>
                                 </div>
                             </item>
@@ -246,7 +255,12 @@
                                 <div class="column medium-6 small-12 explore__section-shift">
                                     <div class="explore__section-box explore__section-box--<je:item runat="server" field=".itr" />">
                                         <je:img runat="server" field=".photo" size="thumb" class="explore__section-photo" />
-                                        <je:item runat="server" field=".btn" tag="p" class="explore__section-a" />
+                                        <!--<je:item runat="server" field=".btn" tag="h3" class="explore__section-a" />-->
+
+                                        <je:a runat="server" href="{.link}" class="explore__section-a">
+                                            <je:item runat="server" field=".btn" />
+                                            <je:img runat="server" src="/assets/img/arrow-brown.svg" class="explore__section-arrow" />
+                                        </je:a>
                                     </div>
                                 </div>
                             </item2n>

@@ -69,6 +69,7 @@
     }
 
     &-title {
+        font-family: $font-s;
         font-size: 3rem;
         font-weight: 400;
         line-height: 118%;
@@ -113,9 +114,18 @@
         background-color: $sandBrown;
         padding: 1.3rem 2.1rem;
         text-transform: uppercase;
+        transition: transform 0.3s ease;
+
+        &:hover .hotel__desc-arrow {
+            transform: translateX(0.3rem);
+        }
+    }
+
+    &-arrow {
+        margin-left: 1rem;
+        transition: transform 0.3s ease
     }
 }
-
 
 
 
@@ -214,6 +224,21 @@
         padding: 1.3rem 2.1rem;
     }
         */
+
+
+    &-a {
+        margin-top: 4rem;
+        transition: transform 0.3s ease;
+
+        &:hover .activ__section-arrow {
+            transform: translateX(0.3rem);
+        }
+    }
+
+    &-arrow {
+        margin-left: 1rem;
+        transition: transform 0.3s ease
+    }
 }
 
 
@@ -222,10 +247,28 @@
 
 // == Section Explore ==
 .explore__section {
+    &-title {
+        font-family: $font-s;
+        font-size: 6.4rem;
+        font-weight: 400;
+        line-height: 116%;
+        color: $darkBrown;
+    }
+
+
+
     &-box {
+        margin-top: 4rem;
+        &--1 {
+            @include breakpoint ("medium") {
+                margin-top: 7rem;
+            }
+        }
+
         &--2 {
             @include breakpoint ("medium") {
                 padding-right: 20%;
+                margin-top: 0;
             }
         }
 
@@ -238,6 +281,7 @@
         &--6 {
             @include breakpoint ("medium") {
                 padding-right: 20%;
+                margin-top: 4rem;
             }
         }
     }
@@ -248,7 +292,23 @@
 
     &-photo {
         width: 100%;
+        margin-bottom: 3rem;
     }
 
+    &-a {
+        font-family: $font-s;
+        font-size: 3.8rem;
+        font-weight: 400;
+        line-height: 120%;
+
+        &:hover .explore__section-arrow {
+            transform: translateX(0.5rem);
+        }
+    }
+
+    &-arrow {
+        margin-left: 3.1rem;
+        transition: transform 0.3s ease
+    }
 }
 

@@ -1,7 +1,6 @@
 <%@ Control language="C#" %>
 <je:a runat="server" href="/cs/uvod" class="header__logo">
-  <%@ Register tagPrefix="uc" tagName="logo" src="~/controls/logo.ascx" %>
-  <uc:logo runat="server" />
+  <je:img runat="server" src="/assets/img/logo-header.svg" class="header__logo-img" />
 </je:a>
 
 <div class="header__collapse" id="headerCollapse" aria-hidden="true">
