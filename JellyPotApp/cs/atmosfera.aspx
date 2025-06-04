@@ -161,24 +161,7 @@
             </je:repeater>
         </div>
 
-        <div class="row atmosphere__InfoBlocks">
-            <je:repeater runat="server" source=".infoBlocks">
-                <item>
-                    <div class="column medium-12 small-12">
-                        <je:item runat="server" field=".title" tag="h2" class="atmosphere__InfoBlocks-subtitle" />
-                        <je:item runat="server" field=".text" tag="div" class="atmosphere__InfoBlocks-p" />
-
-                        <je:repeater runat="server" source=".blockImages">
-                            <item>
-                                <div class="column medium-12 small-12">
-                                    <je:img runat="server" field=".photo" size="thumb" class="atmosphere__blockImages-img" />
-                                </div>
-                            </item>
-                        </je:repeater>
-                    </div>
-                </item>
-            </je:repeater>
-        </div>
+        
     </section>
 -->
 </je:content>
