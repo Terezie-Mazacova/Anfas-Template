@@ -7,7 +7,7 @@
   position: fixed;
   top: 0;
   z-index: 1000;
-  padding: 0 3rem;
+  padding: 0 3rem 0 0;
   box-sizing: border-box;
   color: white;
   background: $white;
@@ -30,7 +30,7 @@
     transition: all ease .5s;
     
     &-img {
-      height: 4.5rem;
+      height: 100%;
       width: auto;
     }
   }
@@ -271,28 +271,30 @@
   writing-mode: sideways-lr;
   width: 8rem;
   align-items: center;
-  height: 85%;
-  justify-content: space-around;
+  height: calc(100% - 7.5rem);
+  justify-content: space-between;
   text-transform: uppercase;
+  text-align: center;
 
+  &-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
   &-links {
+    display: flex;
+    height: 100%;
+    justify-content: center;
     font-size: 1.4rem;
     font-weight: 700;
   }
-  
+
   &-link {
     color: $sandBrown;
-    border-bottom: .1rem solid $sandBrown;
-    //margin: 22px;
-    margin-bottom: 2.2rem;
-    //margin-top: 22px;
-    
-    &:first-child {
-      border-bottom: none;
-      margin-bottom: 0;
-    }
 
-    &:last-child {
+    & + & {
+      border-bottom: .1rem solid $sandBrown;
+      margin-bottom: 2.2rem;
       padding-bottom: 2.2rem;
     }
   }

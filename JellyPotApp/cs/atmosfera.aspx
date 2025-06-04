@@ -17,25 +17,120 @@
 <je:content runat="server" forRegion="headerClass">header--scroll</je:content>
 
 <je:content runat="server" forRegion="main">
-    <section class="canvas canvas--first canvas--white">
-
-        <div class="row mb-4 atmosphere__intro-img">
-            <je:repeater runat="server" source=".introImages">
-                <item>
-                    <div class="column medium-12 small-12">
-                        <je:img runat="server" field=".photo" size="thumb" class="atmosphere__intro-images" />
-                    </div>
-                </item>
-            </je:repeater>
-        </div>
-
-        <div class="row atmosphere__intro-text">
-            <div class="column medium-12 small-12">
-                <je:item runat="server" field=".title" tag="h1" class="atmosphere__main-title" />
-                <je:item runat="server" field=".note" tag="div" class="text " />
+    <!-- Intro Images -->
+    <section class="canvas canvas--white canvas--jumbo">
+        <div class="row intro__images row--wide">
+            <div class="intro__images-big">
+                <je:repeater runat="server" source=".introImages">
+                    <item1>
+                        <je:img runat="server" src="/assets/img/logo-images.svg" class="intro__images-logo" />
+                        <je:img runat="server" field=".photo" size="thumb" class="intro__images-img intro__images-img--big" />
+                    </item1>
+                </je:repeater>
+            </div>
+            <div class="intro__images-small">
+                <je:repeater runat="server" source=".introImages">
+                    <item1></item1>
+                    <item>
+                        <je:img runat="server" field=".photo" size="thumb" class="intro__images-img intro__images-img--small" />
+                    </item>
+                </je:repeater>
             </div>
         </div>
+    </section>
 
+    <!-- Intro Text + Icons -->
+    <section class="canvas canvas--white">
+        <div class="row intros__text">
+            <item>
+                <div class="column medium-8 small-12">
+                    <je:item runat="server" field=".note" class="" />
+                </div>
+            </item>
+        </div>
+
+        <div class="row">
+            <div class="medium-12 small-12">
+                <div class=" atmos__faci">
+                    <je:repeater runat="server" source=".facilities">
+                        <item>
+                            <div class="atmos__faci-wrapper">
+                                <je:img runat="server" field=".photo" size="thumb" class="atmos__faci-images" />
+                                <je:item runat="server" field=".name" class="atmos__faci-note" />
+                            </div>
+                        </item>
+                    </je:repeater>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- Sekce Bloky 
+    <section class="canvas canvas--white">
+        <je:repeater runat="server" source=".blocks">
+            <item>
+                <div class="row row--wide">
+                    <div class="column medium-12 small-12">
+                        <div class="row info__blocks">
+                            <div class="column medium-6 small-12">
+                                <je:item runat="server" field=".text" tag="div" class="info__blocks-text" />
+                            </div>
+                        
+                            <div class="column medium-6 small-12">
+                                <je:repeater runat="server" source=".photoBlock">
+                                    <item>
+                                        <je:img runat="server" field=".photo" size="thumb" class="blocks__section-img blocks__section-img--{.parent.itr}" />
+                                    </item>
+                                </je:repeater>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </item>
+        </je:repeater>
+    </section>
+-->
+
+    <section class="canvas canvas--white">
+        <je:repeater runat="server" source=".blocks">
+            <item>
+                <div class="row row--wide info__blocks">
+                    <div class="column medium-6 small-12">
+                        <je:item runat="server" field=".text" tag="div" class="info__blocks-text" />
+                    </div>
+                    
+                    <div class="row info__blocks-container">
+                        <div class="info__blocks-first column medium-4 small-12">
+                            <je:repeater runat="server" source=".photoBlock">
+                                <item1>
+                                    <je:img runat="server" field=".photo" size="thumb" class="" />
+                                </item1>
+                            </je:repeater>
+                        </div>
+
+                        <div class="info__blocks-second column medium-8 small-12">
+                            <je:repeater runat="server" source=".photoBlock">
+                                <item1></item1>
+                                <item>
+                                    <je:img runat="server" field=".photo" size="thumb" class="" />
+                                </item>
+                            </je:repeater>
+                        </div>
+                    </div>
+                </div>
+            </item>
+        </je:repeater>
+</section>
+
+
+
+
+
+    <!--<section class="canvas canvas--white">
+        
         <div class="atmosphere__facilities">
             <je:repeater runat="server" source=".facilities">
                 <item>
@@ -46,7 +141,7 @@
                 </item>
             </je:repeater>
         </div>
-
+        
         <div class="row atmosphere__InfoBlocks">
             <je:repeater runat="server" source=".infoBlocks">
                 <item>
@@ -66,11 +161,5 @@
             </je:repeater>
         </div>
     </section>
-
-    <section class="canvas canfas--firts canvas--black">
-        <div class="row mb-4 atmosphere__intro-img">
-            <je:item runat="server" field=".title" tag="h1" class="atmosphere__main-title" />
-            <je:item runat="server" field=".note" tag="div" class="text " />
-        </div>
-    </section>
+-->
 </je:content>

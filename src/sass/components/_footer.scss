@@ -26,6 +26,9 @@
     }
 
     &-info {
+        display: flex;
+        gap: 1.5rem;
+        flex-direction: column;
         text-decoration: underline;
         font-size: 1.6rem;
         font-weight: 400;
@@ -33,14 +36,6 @@
         text-decoration-thickness: auto;
         text-underline-offset: auto;
         text-underline-position: from-font;
-
-        p {
-            margin-bottom: 3rem;
-
-            &:nth-last-child {
-                margin-bottom: 0;
-            }
-        }
     }
 
     &-data {
@@ -67,6 +62,13 @@
         .email {
             margin-bottom: 2.5rem;
         }
+    }
+
+    &-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
     }
 
     &-infos {

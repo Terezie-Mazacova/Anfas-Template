@@ -35,7 +35,7 @@
                             <div class="column medium-3 small-12">                                
                                 <je:item runat="server" field=".contactData" tag="div" class="footer__secondpart-data" />
                             </div>
-                            <div class="column medium-3 small-12">
+                            <div class="column medium-3 small-12 footer__secondpart-container">
                                 <je:repeater runat="server" source=".socialMedia">
                                     <item>
                                         <je:a runat="server" href="{.link}" class="footer__secondpart-icons">

@@ -24,6 +24,7 @@
             <div class="intro__images-big">
                 <je:repeater runat="server" source=".introImages">
                     <item1>
+                        <je:img runat="server" src="/assets/img/logo-images.svg" class="intro__images-logo" />
                         <je:img runat="server" field=".photo" size="thumb" class="intro__images-img intro__images-img--big" />
                     </item1>
                 </je:repeater>

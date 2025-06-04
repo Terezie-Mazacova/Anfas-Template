@@ -1,74 +1,46 @@
-.atmosphere__intro-img {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.atmosphere {
-    &__intro {
-        &-images {
-            //display: block;
-            //width: 100%;
-            height: auto;
-        }
-    }    
-}
-.atmosphere__intro-text {
-    margin-bottom: 103px;
-    max-width: 1024px;
-
-    .atmosphere__main-title {
-        font-size: 64px;
+// == Intros Text  ==
+.intros__text {
+    &-title {
+        font-family: $font-s;
+        font-size: 6.4rem;
         font-weight: 400;
-        line-height: 116%;
+        margin-bottom: 3rem;
     }
 
-    .atmosphere__intro-p {
-        font-size: 22px;
-        line-height: 157%;
-    }
+    
 }
 
+.atmos__faci {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem 2rem;
 
-.atmosphere__facilities {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    margin-bottom: $v-s-8;
-    gap: 73px 109px;
-
-    .atmosphere-faci {
+    &-wrapper {
+        flex: 0 0 calc(20% - 1.6rem);
         display: flex;
         flex-direction: column;
         align-items: center;
-        
+        text-align: center;
+    }
 
-        .atmosphere__facilities-images {
-            width: 216px;
-            height: 144px;
-        }
+    &-images {
+        width: 15rem;
+        height: 15rem;
+        object-fit: contain;
+        mix-blend-mode: darken;
+    }
 
-        .atmosphere__facilities-span {
-            font-size: 18px;
-            line-height: 157%;
-            font-weight: 600;
-            text-align: center;
-        }
+    &-note {
+        font-size: 1.8rem;
+        font-weight: 600;
     }
 }
 
-.atmosphere__InfoBlocks  {
-    .atmosphere__InfoBlocks-subtitle {
-        font-size: 38px;
-        font-weight: 400;
-        line-height: 120%;
-        color: #423435;
-    }
 
-    .atmosphere__InfoBlocks-p {
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 157%;
-        color: #423435;
-    }
+// == Sekce Bloky == 
+.info__blocks {
+    display: flex;
+    flex-direction: column;
 }
 
 

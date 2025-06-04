@@ -1,5 +1,5 @@
 <%@ Control language="C#" %>
-<je:a runat="server" href="/cs/uvod" class="header__logo">
+<je:a runat="server" href="/cs/home" class="header__logo">
   <je:img runat="server" src="/assets/img/logo-header.svg" class="header__logo-img" />
 </je:a>
 
