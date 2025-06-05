@@ -42,11 +42,9 @@
     <!-- Intro Text + Icons -->
     <section class="canvas canvas--white">
         <div class="row intros__text">
-            <item>
-                <div class="column medium-8 small-12">
-                    <je:item runat="server" field=".note" class="intros__text-textfield" />
-                </div>
-            </item>
+            <div class="column medium-8 small-12">
+                <je:item runat="server" field=".note" tag="div" class="intros__text-p" />
+            </div>
         </div>
 
         <div class="row">
@@ -94,7 +92,6 @@
                                 </item1>
                             </je:repeater>
                         </div>
-
                     </div>
                 </div>
             </item>

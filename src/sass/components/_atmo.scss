@@ -1,6 +1,6 @@
 // == Intros Text  ==
 .intros__text {
-    margin-bottom: 10rem;
+    margin-bottom: 8rem;
 
     &-title {
         font-family: $font-s;
@@ -10,10 +10,12 @@
 
     }
 
-    P {
-        color: red;
-    }
+
     
+    
+}
+.title {
+    color: blue;
 }
 
 .atmos__faci {
@@ -62,7 +64,6 @@
     }
 
     &-img--mg {
-
         @include breakpoint("medium") {
             margin-top: -5rem;
         }
@@ -72,8 +73,6 @@
         @include breakpoint("medium") {
             flex-direction: row-reverse !important;
         }
-
-        
     }
 }
 

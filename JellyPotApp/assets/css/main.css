@@ -3465,14 +3465,15 @@ button:focus {
     height: 25rem; }
 
 .intros__text {
-  margin-bottom: 10rem; }
+  margin-bottom: 8rem; }
   .intros__text-title {
     font-family: "Pridi", serif;
     font-size: 6.4rem;
     font-weight: 400;
     margin-bottom: 3rem; }
-  .intros__text P {
-    color: red; }
+
+.title {
+  color: blue; }
 
 .atmos__faci {
   display: -ms-flexbox;
