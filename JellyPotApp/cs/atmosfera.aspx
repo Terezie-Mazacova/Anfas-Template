@@ -44,7 +44,7 @@
         <div class="row intros__text">
             <item>
                 <div class="column medium-8 small-12">
-                    <je:item runat="server" field=".note" class="" />
+                    <je:item runat="server" field=".note" class="intros__text-textfield" />
                 </div>
             </item>
         </div>
@@ -63,105 +63,41 @@
                 </div>
             </div>
         </div>
-        
     </section>
 
-    <!-- Sekce Bloky 
-    <section class="canvas canvas--white">
-        <je:repeater runat="server" source=".blocks">
-            <item>
-                <div class="row row--wide">
-                    <div class="column medium-12 small-12">
-                        <div class="row info__blocks">
-                            <div class="column medium-6 small-12">
-                                <je:item runat="server" field=".text" tag="div" class="info__blocks-text" />
-                            </div>
-                        
-                            <div class="column medium-6 small-12">
-                                <je:repeater runat="server" source=".photoBlock">
-                                    <item>
-                                        <je:img runat="server" field=".photo" size="thumb" class="blocks__section-img blocks__section-img--{.parent.itr}" />
-                                    </item>
-                                </je:repeater>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-                
-            </item>
-        </je:repeater>
-    </section>
--->
-
+    <!-- Sekce Bloky -->
     <section class="canvas canvas--white">
         <je:repeater runat="server" source=".blocks">
             <item>
                 <div class="row row--wide info__blocks">
-                    <div class="column medium-6 small-12">
-                        <je:item runat="server" field=".text" tag="div" class="info__blocks-text" />
+                    <div class="row  <je:if runat="server" condition=".switch"><then>info__blocks-switch</then></je:if>">
+                        <div class="column medium-6 small-12">
+                            <je:item runat="server" field=".text" tag="div" class="text info__blocks-text" />
+                        </div>
                     </div>
                     
-                    <div class="row info__blocks-container">
-                        <div class="info__blocks-first column medium-4 small-12">
+                    <div class="row info__blocks-container <je:if runat="server" condition=".switch"><then>info__blocks-switch</then></je:if>">
+                        
+                        <div class="info__blocks-second column medium-8 small-12 info__blocks-box--<je:item runat="server" field=".itr" />">
+                            <je:repeater runat="server" source=".photoBlock">
+                                <item1></item1>
+                                <item>
+                                    <je:img runat="server" field=".photo" size="thumb" class="info__blocks-img" />
+                                </item>
+                            </je:repeater>
+                        </div>
+
+                        <div class="info__blocks-first column medium-4 small-12 info__blocks-box--<je:item runat="server" field=".itr" />">
                             <je:repeater runat="server" source=".photoBlock">
                                 <item1>
-                                    <je:img runat="server" field=".photo" size="thumb" class="" />
+                                    <je:img runat="server" field=".photo" size="thumb" class="info__blocks-img info__blocks-img--mg" />
                                 </item1>
                             </je:repeater>
                         </div>
 
-                        <div class="info__blocks-second column medium-8 small-12">
-                            <je:repeater runat="server" source=".photoBlock">
-                                <item1></item1>
-                                <item>
-                                    <je:img runat="server" field=".photo" size="thumb" class="" />
-                                </item>
-                            </je:repeater>
-                        </div>
                     </div>
                 </div>
             </item>
         </je:repeater>
-</section>
-
-
-
-
-
-    <!--<section class="canvas canvas--white">
-        
-        <div class="atmosphere__facilities">
-            <je:repeater runat="server" source=".facilities">
-                <item>
-                    <div class="atmosphere-faci">
-                        <je:img runat="server" field=".photo" size="thumb" class="atmosphere__facilities-images" />
-                        <je:item runat="server" field=".name" tag="span" class="atmosphere__facilities-span" />
-                    </div>
-                </item>
-            </je:repeater>
-        </div>
-        
-        <div class="row atmosphere__InfoBlocks">
-            <je:repeater runat="server" source=".infoBlocks">
-                <item>
-                    <div class="column medium-12 small-12">
-                        <je:item runat="server" field=".title" tag="h2" class="atmosphere__InfoBlocks-subtitle" />
-                        <je:item runat="server" field=".text" tag="div" class="atmosphere__InfoBlocks-p" />
-
-                        <je:repeater runat="server" source=".blockImages">
-                            <item>
-                                <div class="column medium-12 small-12">
-                                    <je:img runat="server" field=".photo" size="thumb" class="atmosphere__blockImages-img" />
-                                </div>
-                            </item>
-                        </je:repeater>
-                    </div>
-                </item>
-            </je:repeater>
-        </div>
-
-        
     </section>
--->
 </je:content>

@@ -1,12 +1,18 @@
 // == Intros Text  ==
 .intros__text {
+    margin-bottom: 10rem;
+
     &-title {
         font-family: $font-s;
         font-size: 6.4rem;
         font-weight: 400;
         margin-bottom: 3rem;
+
     }
 
+    P {
+        color: red;
+    }
     
 }
 
@@ -41,6 +47,34 @@
 .info__blocks {
     display: flex;
     flex-direction: column;
+
+    &-text {
+        margin-bottom: 4rem;
+    }
+
+    & + & {
+        margin-top: 8rem;
+    }
+
+    &-img {
+        width: 100%;
+        height: auto;
+    }
+
+    &-img--mg {
+
+        @include breakpoint("medium") {
+            margin-top: -5rem;
+        }
+    }
+
+    &-switch {
+        @include breakpoint("medium") {
+            flex-direction: row-reverse !important;
+        }
+
+        
+    }
 }
 
 

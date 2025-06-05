@@ -3464,11 +3464,15 @@ button:focus {
     width: 8rem;
     height: 25rem; }
 
-.intros__text-title {
-  font-family: "Pridi", serif;
-  font-size: 6.4rem;
-  font-weight: 400;
-  margin-bottom: 3rem; }
+.intros__text {
+  margin-bottom: 10rem; }
+  .intros__text-title {
+    font-family: "Pridi", serif;
+    font-size: 6.4rem;
+    font-weight: 400;
+    margin-bottom: 3rem; }
+  .intros__text P {
+    color: red; }
 
 .atmos__faci {
   display: -ms-flexbox;
@@ -3500,6 +3504,20 @@ button:focus {
   display: flex;
   -ms-flex-direction: column;
       flex-direction: column; }
+  .info__blocks-text {
+    margin-bottom: 4rem; }
+  .info__blocks + .info__blocks {
+    margin-top: 8rem; }
+  .info__blocks-img {
+    width: 100%;
+    height: auto; }
+  @media print, screen and (min-width: 48em) {
+    .info__blocks-img--mg {
+      margin-top: -5rem; } }
+  @media print, screen and (min-width: 48em) {
+    .info__blocks-switch {
+      -ms-flex-direction: row-reverse !important;
+          flex-direction: row-reverse !important; } }
 
 [class^="orejime-"] {
   margin: 0;
