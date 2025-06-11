@@ -57,7 +57,8 @@
             <item>
                 <div class="row row--wide info__blocks">
                     <div class="row  <je:if runat="server" condition=".switch"><then>info__blocks-switch</then></je:if>">
-                        <div class="column medium-4 small-12">
+                        <div class="column medium-2 small-12"></div>
+                        <div class="column medium-5 small-12">
                             <je:item runat="server" field=".text" tag="div" class="text info__blocks-text" />
                         </div>
                     </div>
@@ -86,8 +87,8 @@
 
             <item2>
                 <div class="row row--wide info__blocks info__blocks--center">
-                    <div class="column medium-8 small-12">
-                        <je:item runat="server" field=".text" tag="div" class="text info__blocks-text" />
+                    <div class="info__blocks-width column medium-8 small-12">
+                        <je:item runat="server" field=".text" tag="div" class="text info__blocks-texts" />
                     </div>
 
                     <div class="info__blocks-first column medium-8 small-12 info__blocks-box--<je:item runat="server" field=".itr" />">

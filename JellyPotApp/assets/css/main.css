@@ -3587,6 +3587,10 @@ button:focus {
       font-size: 1.6rem;
       font-weight: 700;
       line-height: 1.5; }
+  .info__blocks-width {
+    width: 100%; }
+  .info__blocks-texts {
+    max-width: 60rem; }
 
 [class^="orejime-"] {
   margin: 0;
