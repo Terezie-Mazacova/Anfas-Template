@@ -69,7 +69,8 @@
             <item>
                 <div class="row row--wide info__blocks">
                     <div class="row  <je:if runat="server" condition=".switch"><then>info__blocks-switch</then></je:if>">
-                        <div class="column medium-4 small-12">
+                        <div class="column medium-2 small-12"></div>
+                        <div class="column medium-5 small-12">
                             <je:item runat="server" field=".text" tag="div" class="text info__blocks-text" />
                         </div>
                     </div>

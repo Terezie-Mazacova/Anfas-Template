@@ -57,13 +57,13 @@
             <item>
                 <div class="row row--wide info__blocks">
                     <div class="row  <je:if runat="server" condition=".switch"><then>info__blocks-switch</then></je:if>">
-                        <div class="column medium-2 small-12"></div>
+                        <div class="column medium-1 small-12"></div>
                         <div class="column medium-6 small-12">
                             <je:item runat="server" field=".text" tag="div" class="text info__blocks-text" />
 
-                            <je:filelink runat="server" field=".file">
-                                <je:img runat="server" src="/assets/img/download-icon.svg" class="icon" />
-                                <p>Jídelní lístek</p>
+                            <je:filelink runat="server" field=".file" class="info__blocks-link">
+                                <je:img runat="server" src="/assets/img/download-icon.svg" />
+                                <je:item runat="server" field=".name" tag="p" class="info__blocks-link-p" />
                             </je:filelink>
                         </div>
                     </div>

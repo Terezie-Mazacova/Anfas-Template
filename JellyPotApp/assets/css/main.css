@@ -3578,6 +3578,15 @@ button:focus {
         justify-content: center;
     -ms-flex-align: center;
         align-items: center; }
+  .info__blocks-link {
+    display: -ms-flexbox;
+    display: flex;
+    gap: 1rem; }
+    .info__blocks-link-p {
+      color: #AF9B78;
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1.5; }
 
 [class^="orejime-"] {
   margin: 0;
