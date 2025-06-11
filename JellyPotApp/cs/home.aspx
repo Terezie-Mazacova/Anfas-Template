@@ -44,8 +44,8 @@
     <section class="canvas canvas--white">
         <div class="row intro__text">
             <item>
-                <div class="column medium-8 small-12">
-                    <je:item runat="server" field=".introText" tag="div" class="intro__text-p" />
+                <div class="column medium-10 small-12">
+                    <je:item runat="server" field=".introText" tag="div" class="text text--perex intro__text-p" />
                 </div>
             </item>
         </div>
@@ -55,7 +55,7 @@
                 <item>
                     <div class="column medium-6 small-12">
                         <div class=" hotel__desc-wrapper">
-                            <je:item runat="server" field=".name" tag="h2" class="hotel__desc-title" />
+                            <je:item runat="server" field=".name" tag="h2" class="text text--sm-h2 hotel__desc-title" />
 
                             <div class="hotel__desc-container">
                                 <je:repeater runat="server" source=".offer">
@@ -200,7 +200,7 @@
                             </div>
 
                             <div class="activ__section-wrapper">
-                                <je:item runat="server" field=".text" tag="div" class="text text--lg activ__section-title" />
+                                <je:item runat="server" field=".text" tag="div" class="text text--lg text--sm-p activ__section-title" />
                                 <je:a runat="server" href="{.link}" class="btn activ__section-a">
                                     <je:item runat="server" field=".btn" />
                                     <je:img runat="server" src="/assets/img/arrow.svg" class="activ__section-arrow" />
@@ -210,7 +210,7 @@
                             <div class="activ__section-container">
                                 <div class="row">
                                     <div class="column medium-6 small-12">
-                                        <je:item runat="server" field=".subTitle" tag="div" class="text text--lg activ__section-subtitle" />
+                                        <je:item runat="server" field=".subTitle" tag="div" class="text text--big-h3 activ__section-subtitle" />
                                     </div>
                                 </div>
                                 <div class="row">
@@ -236,7 +236,7 @@
         <div class="row explore__section">
             <je:repeater runat="server" source=".explore">
                 <item>
-                    <je:item runat="server" field=".title" tag="h2" class="explore__section-title" />
+                    <je:item runat="server" field=".title" tag="h2" class="text text--big-h2 explore__section-title" />
                     <div class="row">
                         <je:repeater runat="server" source=".exploreMore">
                             <item>

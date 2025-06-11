@@ -10,7 +10,7 @@
     -->
 
     <div class="row row--wide">
-        <div class="column medium-12 small-12">
+        <div class="medium-12 small-12">
             <div class="footer">
                 <div class="row footer__section">
                     <div class="column medium-12 small-12">

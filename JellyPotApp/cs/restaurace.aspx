@@ -41,10 +41,10 @@
 
     <!-- Intro Text -->
     <section class="canvas canvas--white">
-        <div class="row intros__text">
+        <div class="row">
             <item>
                 <div class="column medium-8 small-12">
-                    <je:item runat="server" field=".title" class="" />
+                    <je:item runat="server" field=".note" class="text" />
 
                 </div>
             </item>
@@ -57,8 +57,14 @@
             <item>
                 <div class="row row--wide info__blocks">
                     <div class="row  <je:if runat="server" condition=".switch"><then>info__blocks-switch</then></je:if>">
+                        <div class="column medium-2 small-12"></div>
                         <div class="column medium-6 small-12">
                             <je:item runat="server" field=".text" tag="div" class="text info__blocks-text" />
+
+                            <je:filelink runat="server" field=".file">
+                                <je:img runat="server" src="/assets/img/download-icon.svg" class="icon" />
+                                <p>Jídelní lístek</p>
+                            </je:filelink>
                         </div>
                     </div>
                     
@@ -67,18 +73,24 @@
                         <div class="info__blocks-second column medium-8 small-12 info__blocks-box--<je:item runat="server" field=".itr" />">
                             <je:repeater runat="server" source=".photoBlock">
                                 <item1></item1>
-                                <item>
+                                <item2>
                                     <je:img runat="server" field=".photo" size="thumb" class="info__blocks-img" />
-                                </item>
+                                </item2>
+                                
                             </je:repeater>
                         </div>
 
                         <div class="info__blocks-first column medium-4 small-12 info__blocks-box--<je:item runat="server" field=".itr" />">
+                            
                             <je:repeater runat="server" source=".photoBlock">
                                 <item1>
                                     <je:img runat="server" field=".photo" size="thumb" class="info__blocks-img info__blocks-img--mg" />
                                 </item1>
+                                <item3>
+                                    <je:img runat="server" field=".photo" size="thumb" class="info__blocks-img" />
+                                </item3>
                             </je:repeater>
+                                
                         </div>
                     </div>
                 </div>

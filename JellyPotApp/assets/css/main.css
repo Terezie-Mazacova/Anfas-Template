@@ -2690,32 +2690,66 @@ button:focus {
   @media print, screen and (min-width: 48em) {
     .text {
       font-size: 1.8rem; } }
+  .text h1 {
+    font-family: "Pridi", serif;
+    font-size: 6.4rem;
+    font-weight: 400; }
   .text p {
     color: #333333;
-    font-size: 1.6rem; }
+    font-size: 1.8rem;
+    font-weight: 400; }
     @media print, screen and (min-width: 48em) {
       .text p {
         font-size: 1.8rem; } }
+  .text--md-p p {
+    color: #333333;
+    font-size: 2.2rem;
+    font-weight: 500; }
+  .text--sm-p p {
+    color: #333333;
+    font-size: 2rem;
+    font-weight: 400; }
+    @media print, screen and (min-width: 48em) {
+      .text--sm-p p {
+        font-size: 2rem; } }
   .text h2 {
-    font-size: 3.2rem;
+    font-size: 3.8rem;
     line-height: 1.2;
     font-weight: 400;
     color: #333333;
     font-family: "Pridi", serif;
-    margin-bottom: .5rem; }
-    @media print, screen and (min-width: 48em) {
-      .text h2 {
-        font-size: 4rem; } }
+    margin-bottom: .5rem;
+    /*
+    @include breakpoint ("medium") {
+      font-size: 4rem;
+    }
+    */ }
+  .text--big-h2 {
+    font-family: "Pridi", serif;
+    font-size: 6.4rem;
+    line-height: 1.2; }
+  .text--sm-h2 {
+    font-family: "Pridi", serif;
+    font-size: 3rem;
+    line-height: 1.2; }
   .text h3 {
     font-size: 2.4rem;
     line-height: 1.2;
     font-weight: 400;
     color: #333333;
     font-family: "Pridi", serif;
-    margin-bottom: .5rem; }
-    @media print, screen and (min-width: 48em) {
-      .text h3 {
-        font-size: 20rem; } }
+    margin-bottom: .5rem;
+    /*
+    @include breakpoint ("medium") {
+      font-size: 20rem;
+    }
+    */ }
+  .text--big-h3 h3 {
+    font-size: 3.8rem;
+    line-height: 1.2;
+    font-weight: 400;
+    color: #333333;
+    font-family: "Pridi", serif; }
   .text h4 {
     font-size: 2rem;
     line-height: 1.4;
@@ -2725,6 +2759,8 @@ button:focus {
     margin-bottom: .5rem; }
   .text p + p {
     margin-top: 1rem; }
+  .text h1 + p {
+    margin-top: 3rem; }
   .text h2 + p {
     margin-top: 1rem; }
   .text h3 + p {
@@ -2747,23 +2783,30 @@ button:focus {
     position: relative;
     margin-bottom: 1.5rem; }
   .text--perex {
+    font-family: "Pridi", serif;
     color: #333333;
     font-weight: 400;
-    font-size: 1.7rem; }
-    @media print, screen and (min-width: 64em) {
-      .text--perex {
-        font-size: 2.4rem; } }
+    font-size: 2.6rem;
+    line-height: 1.5;
+    /*
+    @include breakpoint ("large") {
+      font-size: 2.4rem;
+    }
+    */ }
     .text--perex p {
+      font-family: "Pridi", serif;
       color: #333333;
       font-weight: 400;
-      font-size: 1.7rem; }
-      @media print, screen and (min-width: 64em) {
-        .text--perex p {
-          font-size: 2.4rem; } }
-  .text--sm {
-    font-size: 1.6rem; }
-    .text--sm p {
-      font-size: 1.6rem; }
+      font-size: 2.6rem;
+      line-height: 1.5;
+      /*
+      @include breakpoint ("large") {
+        font-size: 2.4rem;
+      }
+      */ }
+  .text--sm p {
+    font-size: 3rem;
+    line-height: 1.2; }
   .text--lg h2 {
     font-size: 5.5rem; }
   .text--lg h3 {
@@ -2998,12 +3041,27 @@ button:focus {
     transform: translateX(100%);
     transition: all .3s ease; }
     .header__collapse-helper {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
       position: fixed;
       top: 86px;
       left: 0;
       bottom: 0;
       width: 100%;
       overflow: auto; }
+    .header__collapse-info--contact {
+      display: -ms-flexbox;
+      display: flex;
+      gap: 1rem; }
+    .header__collapse-info--number {
+      color: #423435;
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1.5; }
     .header__collapse--in {
       transform: translateX(0);
       opacity: 1;
@@ -3244,13 +3302,6 @@ button:focus {
   .intro__images-small {
     width: 30%; }
 
-.intro__text {
-  font-family: "Pridi", serif; }
-  .intro__text .intro__text-p {
-    color: #423435;
-    font-weight: 400;
-    line-height: 157%; }
-
 .hotel__desc {
   margin-bottom: 10rem;
   margin-top: 4rem; }
@@ -3275,10 +3326,6 @@ button:focus {
         margin-top: 0;
         height: 100%; } }
   .hotel__desc-title {
-    font-family: "Pridi", serif;
-    font-size: 3rem;
-    font-weight: 400;
-    line-height: 118%;
     color: #423435; }
   .hotel__desc-container {
     display: -ms-flexbox;
@@ -3356,17 +3403,7 @@ button:focus {
 
 .activ__section {
   position: relative;
-  background-color: #EDE9E1;
-  /*
-    &-a {
-        font-size: 1.6rem;
-        font-weight: 700;
-        line-height: 156%;
-        color: $white;
-        background-color: $sandBrown;
-        padding: 1.3rem 2.1rem;
-    }
-        */ }
+  background-color: #EDE9E1; }
   .activ__section-img-wrapper {
     display: -ms-flexbox;
     display: flex;
@@ -3403,48 +3440,47 @@ button:focus {
     margin-left: 1rem;
     transition: transform 0.3s ease; }
 
-.explore__section-title {
-  font-family: "Pridi", serif;
-  font-size: 6.4rem;
-  font-weight: 400;
-  line-height: 116%;
-  color: #423435; }
-
-.explore__section-box {
-  margin-top: 4rem; }
-  @media print, screen and (min-width: 48em) {
-    .explore__section-box--1 {
-      margin-top: 7rem; } }
-  @media print, screen and (min-width: 48em) {
-    .explore__section-box--2 {
-      padding-right: 20%;
-      margin-top: 0; } }
-  @media print, screen and (min-width: 48em) {
-    .explore__section-box--3 {
-      padding-left: 30%; } }
-  @media print, screen and (min-width: 48em) {
-    .explore__section-box--6 {
-      padding-right: 20%;
-      margin-top: 4rem; } }
-
-.explore__section-shift {
-  margin-top: -5rem; }
-
-.explore__section-photo {
-  width: 100%;
-  margin-bottom: 3rem; }
-
-.explore__section-a {
-  font-family: "Pridi", serif;
-  font-size: 3.8rem;
-  font-weight: 400;
-  line-height: 120%; }
-  .explore__section-a:hover .explore__section-arrow {
-    transform: translateX(0.5rem); }
-
-.explore__section-arrow {
-  margin-left: 3.1rem;
-  transition: transform 0.3s ease; }
+.explore__section {
+  /*
+    &-title {
+        font-family: $font-s;
+        font-size: 6.4rem;
+        font-weight: 400;
+        line-height: 116%;
+        color: $darkBrown;
+    }
+    */ }
+  .explore__section-box {
+    margin-top: 4rem; }
+    @media print, screen and (min-width: 48em) {
+      .explore__section-box--1 {
+        margin-top: 7rem; } }
+    @media print, screen and (min-width: 48em) {
+      .explore__section-box--2 {
+        padding-right: 20%;
+        margin-top: 0; } }
+    @media print, screen and (min-width: 48em) {
+      .explore__section-box--3 {
+        padding-left: 30%; } }
+    @media print, screen and (min-width: 48em) {
+      .explore__section-box--6 {
+        padding-right: 20%;
+        margin-top: 4rem; } }
+  .explore__section-shift {
+    margin-top: -5rem; }
+  .explore__section-photo {
+    width: 100%;
+    margin-bottom: 3rem; }
+  .explore__section-a {
+    font-family: "Pridi", serif;
+    font-size: 3.8rem;
+    font-weight: 400;
+    line-height: 120%; }
+    .explore__section-a:hover .explore__section-arrow {
+      transform: translateX(0.5rem); }
+  .explore__section-arrow {
+    margin-left: 3.1rem;
+    transition: transform 0.3s ease; }
 
 .btn {
   font-size: 1.6rem;
@@ -3466,14 +3502,6 @@ button:focus {
 
 .intros__text {
   margin-bottom: 8rem; }
-  .intros__text-title {
-    font-family: "Pridi", serif;
-    font-size: 6.4rem;
-    font-weight: 400;
-    margin-bottom: 3rem; }
-
-.title {
-  color: blue; }
 
 .atmos__faci {
   display: -ms-flexbox;
@@ -3497,7 +3525,6 @@ button:focus {
     object-fit: contain;
     mix-blend-mode: darken; }
   .atmos__faci-note {
-    font-size: 1.8rem;
     font-weight: 600; }
 
 .info__blocks {
@@ -3507,18 +3534,31 @@ button:focus {
       flex-direction: column; }
   .info__blocks-text {
     margin-bottom: 4rem; }
+    .info__blocks-text:nth-child(even) {
+      padding: 3rem; }
   .info__blocks + .info__blocks {
     margin-top: 8rem; }
   .info__blocks-img {
     width: 100%;
     height: auto; }
-  @media print, screen and (min-width: 48em) {
-    .info__blocks-img--mg {
-      margin-top: -5rem; } }
+  .info__blocks-img--mg {
+    width: 80%;
+    margin-right: 20%; }
+    @media print, screen and (min-width: 48em) {
+      .info__blocks-img--mg {
+        margin-top: -5rem; } }
   @media print, screen and (min-width: 48em) {
     .info__blocks-switch {
       -ms-flex-direction: row-reverse !important;
-          flex-direction: row-reverse !important; } }
+          flex-direction: row-reverse !important; }
+      .info__blocks-switch .info__blocks-img--mg {
+        margin-left: 20%;
+        margin-right: 0; } }
+  .info__blocks--center {
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center; }
 
 [class^="orejime-"] {
   margin: 0;

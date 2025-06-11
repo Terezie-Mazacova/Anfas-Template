@@ -60,12 +60,31 @@
     transition: all .3s ease;
 
     &-helper { //kvuli tomu, aby pri skrolovani nelezly polozky do loga burger buttonu 
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       position: fixed;
       top: 86px;
       left: 0;
       bottom: 0;
       width: 100%;
       overflow: auto;
+    }
+
+    &-info {
+
+      &--contact {
+        display: flex;
+        gap: 1rem;
+      }
+
+
+      &--number {
+        color: $darkBrown;
+        font-size: 1.4rem;
+        font-weight: 700;
+        line-height: 1.5;
+      }
     }
 
     &--in {

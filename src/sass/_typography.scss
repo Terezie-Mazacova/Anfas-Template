@@ -26,23 +26,59 @@ $typo-title: (
   @include breakpoint ("medium") {
     font-size: 1.8rem;
   }
+  h1 {
+    font-family: $font-s;
+    font-size: 6.4rem;
+    font-weight: 400;
+  }
   p {
     color: $text;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+    font-weight: 400;
     @include breakpoint ("medium") {
       font-size: 1.8rem;
     }
   }
+  &--md-p {
+    p {
+      color: $text;
+      font-size: 2.2rem;
+      font-weight: 500;
+    }
+  }
+  &--sm-p {
+    p {
+      color: $text;
+      font-size: 2rem;
+      font-weight: 400;
+      @include breakpoint ("medium") {
+        font-size: 2rem;
+      }
+    }
+  }
   h2 {
-    font-size: 3.2rem;
+    font-size: 3.8rem;
     line-height: 1.2;
     font-weight: 400;
     color: $text;
     font-family: $font-s;
     margin-bottom: .5rem;
+    /*
     @include breakpoint ("medium") {
       font-size: 4rem;
     }
+    */
+  }
+  &--big-h2 {
+    font-family: $font-s;
+    font-size: 6.4rem;
+    line-height: 1.2;
+  }
+  
+  &--sm-h2 {
+    font-family: $font-s;
+    font-size: 3rem;
+    line-height: 1.2;
   }
   h3 {
     font-size: 2.4rem;
@@ -51,8 +87,19 @@ $typo-title: (
     color: $text;
     font-family: $font-s;
     margin-bottom: .5rem;
+    /*
     @include breakpoint ("medium") {
       font-size: 20rem;
+    }
+    */
+  }
+  &--big-h3 {
+    h3 {
+      font-size: 3.8rem;
+      line-height: 1.2;
+      font-weight: 400;
+      color: $text;
+      font-family: $font-s;
     }
   }
   h4 {
@@ -65,6 +112,9 @@ $typo-title: (
   }
   p + p {
     margin-top: 1rem;
+  }
+  h1 + p {
+    margin-top: 3rem;
   }
   h2 + p {
     margin-top: 1rem;
@@ -96,25 +146,34 @@ $typo-title: (
     margin-bottom: 1.5rem;
   }
   &--perex {
+    font-family: $font-s;
     color: $text;
     font-weight: 400;
-    font-size: 1.7rem;
+    font-size: 2.6rem;
+    line-height: 1.5;
+    /*
     @include breakpoint ("large") {
       font-size: 2.4rem;
     }
+    */
+
     p {
+      font-family: $font-s;
       color: $text;
       font-weight: 400;
-      font-size: 1.7rem;
+      font-size: 2.6rem;
+      line-height: 1.5;
+      /*
       @include breakpoint ("large") {
         font-size: 2.4rem;
       }
+      */
     }
   }
   &--sm {
-    font-size: 1.6rem;
     p {
-      font-size: 1.6rem;
+      font-size: 3rem;
+      line-height: 1.2;
     }
   }
 

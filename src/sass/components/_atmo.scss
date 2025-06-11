@@ -1,22 +1,8 @@
 // == Intros Text  ==
 .intros__text {
     margin-bottom: 8rem;
-
-    &-title {
-        font-family: $font-s;
-        font-size: 6.4rem;
-        font-weight: 400;
-        margin-bottom: 3rem;
-
-    }
-
-
-    
-    
 }
-.title {
-    color: blue;
-}
+
 
 .atmos__faci {
     display: flex;
@@ -39,7 +25,6 @@
     }
 
     &-note {
-        font-size: 1.8rem;
         font-weight: 600;
     }
 }
@@ -52,6 +37,10 @@
 
     &-text {
         margin-bottom: 4rem;
+        
+        &:nth-child(even) {
+            padding: 3rem;
+        }
     }
 
     & + & {
@@ -64,15 +53,26 @@
     }
 
     &-img--mg {
+        width: 80%;
+        margin-right: 20%;
         @include breakpoint("medium") {
             margin-top: -5rem;
         }
     }
 
     &-switch {
+        
         @include breakpoint("medium") {
             flex-direction: row-reverse !important;
+            .info__blocks-img--mg {
+                margin-left: 20%;
+                margin-right: 0;
+            }
         }
+    }
+    &--center {
+        justify-content: center;
+        align-items: center;
     }
 }
 

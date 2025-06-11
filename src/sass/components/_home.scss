@@ -41,15 +41,7 @@
 }
 
 // == Intro Text ==
-.intro__text {
-    font-family: $font-s;
-    .intro__text-p {
-        color: $darkBrown;
-        font-weight: 400;
-        line-height: 157%;
-        //width: 60.4375rem;
-    }
-}
+
 
 // == Section Hotel/Depandance
 .hotel__desc {
@@ -75,10 +67,6 @@
     }
 
     &-title {
-        font-family: $font-s;
-        font-size: 3rem;
-        font-weight: 400;
-        line-height: 118%;
         color: $darkBrown;
     }
 
@@ -220,17 +208,6 @@
         margin-top: 4rem;
     }
 
-    /*
-    &-a {
-        font-size: 1.6rem;
-        font-weight: 700;
-        line-height: 156%;
-        color: $white;
-        background-color: $sandBrown;
-        padding: 1.3rem 2.1rem;
-    }
-        */
-
 
     &-a {
         margin-top: 4rem;
@@ -253,6 +230,7 @@
 
 // == Section Explore ==
 .explore__section {
+    /*
     &-title {
         font-family: $font-s;
         font-size: 6.4rem;
@@ -260,7 +238,7 @@
         line-height: 116%;
         color: $darkBrown;
     }
-
+    */
 
 
     &-box {

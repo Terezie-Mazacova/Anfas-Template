@@ -43,7 +43,7 @@
     <section class="canvas canvas--white">
         <div class="row intros__text">
             <div class="column medium-8 small-12">
-                <je:item runat="server" field=".note" tag="div" class="intros__text-p" />
+                <je:item runat="server" field=".note" tag="div" class="text text--md-p intros__text-p" />
             </div>
         </div>
 
@@ -54,7 +54,7 @@
                         <item>
                             <div class="atmos__faci-wrapper">
                                 <je:img runat="server" field=".photo" size="thumb" class="atmos__faci-images" />
-                                <je:item runat="server" field=".name" class="atmos__faci-note" />
+                                <je:item runat="server" field=".name" class="text atmos__faci-note" />
                             </div>
                         </item>
                     </je:repeater>
@@ -69,7 +69,7 @@
             <item>
                 <div class="row row--wide info__blocks">
                     <div class="row  <je:if runat="server" condition=".switch"><then>info__blocks-switch</then></je:if>">
-                        <div class="column medium-6 small-12">
+                        <div class="column medium-4 small-12">
                             <je:item runat="server" field=".text" tag="div" class="text info__blocks-text" />
                         </div>
                     </div>
