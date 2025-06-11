@@ -2997,7 +2997,7 @@ button:focus {
   position: fixed;
   top: 0;
   z-index: 1000;
-  padding: 0 3rem 0 0;
+  padding: 0 8rem 0 0;
   box-sizing: border-box;
   color: white;
   background: #fff;
@@ -3053,15 +3053,32 @@ button:focus {
       bottom: 0;
       width: 100%;
       overflow: auto; }
-    .header__collapse-info--contact {
+    .header__collapse-info {
       display: -ms-flexbox;
       display: flex;
-      gap: 1rem; }
-    .header__collapse-info--number {
-      color: #423435;
-      font-size: 1.4rem;
-      font-weight: 700;
-      line-height: 1.5; }
+      gap: 2.5rem; }
+      .header__collapse-info-contact {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+            align-items: center;
+        gap: 1rem;
+        cursor: pointer; }
+        .header__collapse-info-contact-number {
+          color: #423435;
+          font-size: 1.4rem;
+          font-weight: 700;
+          line-height: 1.5; }
+      .header__collapse-info-language {
+        display: -ms-flexbox;
+        display: flex;
+        gap: 0.5rem;
+        cursor: pointer; }
+        .header__collapse-info-language-text {
+          color: #423435;
+          font-size: 1.4rem;
+          font-weight: 400;
+          line-height: 1.5; }
     .header__collapse--in {
       transform: translateX(0);
       opacity: 1;
@@ -3122,6 +3139,8 @@ button:focus {
     text-decoration: none; }
     .nav__item:first-of-type {
       margin-top: 1em; }
+    .nav__item + .nav__item {
+      border-left: 0.1rem solid #AF9B78; }
   .nav__logo {
     display: -ms-flexbox;
     display: flex;
@@ -3149,7 +3168,6 @@ button:focus {
   .hamburger-wrapper {
     display: none; }
   .header__collapse {
-    height: inherit;
     padding: 0;
     position: static;
     opacity: 1;
@@ -3172,7 +3190,8 @@ button:focus {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: end;
-        justify-content: flex-end; }
+        justify-content: flex-end;
+    margin-left: 5rem; }
     .nav__list {
       margin: 0;
       height: inherit;

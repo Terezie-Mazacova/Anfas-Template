@@ -22,14 +22,16 @@
         </nav>
       </footer>
     </je:repeater>
+
     <div class="header__collapse-info">
-      <div class="header__collapse-info--contact">
-        <je:img runat="server" src="/assets/img/phone-header.svg" class="header__collapse-contact--icon" />
-        <je:item runat="server" field="common.phone" class="header__collapse-contact--number" />
+      <div class="header__collapse-info-contact">
+        <je:img runat="server" src="/assets/img/phone-header.svg" class="header__collapse-info-contact-icon" />
+        <je:item runat="server" field="common.phone" class="header__collapse-info-contact-number" />
       </div>
       
-      <div class="blbla">
-        <je:item runat="server" field="common.language" class="phine" />
+      <div class="header__collapse-info-language">
+        <je:item runat="server" field="common.language" tag="p" class="header__collapse-info-language-text" />
+        <je:img runat="server" src="/assets/img/icon-language.svg" class="" />
       </div>
     </div>
   </div>
